@@ -1,0 +1,181 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.CapturaDePedidosDatosDelCliente" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <Page showHeader="true" title="Datos de cliente" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress4">
+        <content>
+            <layout:BlockLayout background="Dashboard">
+                <layout:content>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="1" title="Agente" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                                        <items>
+                                            <Text text="00001" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                        </items>
+                                        <layoutData/>
+                                    </VBox>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                            <layout:BlockLayoutCell width="2" title="Cliente" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <Text text="Nombre del cliente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                            <layout:BlockLayoutCell width="1" title="Fecha" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <DateTimeInput value="01/01/2018" type="Date" enabled="false" visible="true" width="auto"/>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                </layout:content>
+            </layout:BlockLayout>
+            <layout:BlockLayout background="Default">
+                <layout:content>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="2" title="" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <CheckBox text="¿Desea facturar?" selected="true" editable="true" enabled="true" visible="true" width="135px" textDirection="Inherit"/>
+                                    <Button text="Copiar datos de entrega" type="Emphasized" iconFirst="true" width="210px" enabled="true" visible="true" iconDensityAware="false"/>
+                                    <form:Form width="100%" editable="true" visible="true">
+                                        <form:title>
+                                            <core:Title text="Datos de cliente" level="Auto"/>
+                                        </form:title>
+                                        <form:formContainers>
+                                            <form:FormContainer visible="true">
+                                                <form:formElements>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="RFC" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="Teléfono" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="Correo" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="Nombre fiscal" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="Tipo de persona" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                </form:formElements>
+                                                <form:title>
+                                                    <core:Title text="Datos fiscales" level="Auto" icon="sap-icon://customer"/>
+                                                </form:title>
+                                            </form:FormContainer>
+                                            <form:FormContainer visible="true">
+                                                <form:formElements>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="Calle" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="Colonia" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="Estado" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="No. Interior" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="No. Exterior" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="C.P." design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                            <CheckBox text="Buscar por C.P." selected="true" editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                    <form:FormElement visible="true">
+                                                        <form:label>
+                                                            <Label text="País" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                        </form:label>
+                                                        <form:fields>
+                                                            <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                        </form:fields>
+                                                    </form:FormElement>
+                                                </form:formElements>
+                                                <form:title>
+                                                    <core:Title text="Domicilio Fiscal" level="Auto" icon="sap-icon://shipping-status"/>
+                                                </form:title>
+                                            </form:FormContainer>
+                                        </form:formContainers>
+                                        <form:layout>
+                                            <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                                        </form:layout>
+                                    </form:Form>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                </layout:content>
+            </layout:BlockLayout>
+        </content>
+        <footer>
+            <Bar design="Auto">
+                <contentLeft/>
+                <contentMiddle/>
+                <contentRight>
+                    <Button text="Continuar" type="Accept" iconFirst="true" width="135px" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress13"/>
+                </contentRight>
+            </Bar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

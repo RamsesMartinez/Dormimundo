@@ -1,0 +1,188 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.TransferirPedidosTipoDeTransferencia" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:unified="sap.ui.unified">
+    <Page showHeader="true" title="Transferencia de pedido" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress11">
+        <content>
+            <layout:BlockLayout background="Default">
+                <layout:content>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="2" title="" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <ObjectHeader intro="" title="" number="" numberUnit="" numberState="None" showMarkers="false" markFavorite="false" markFlagged="false" backgroundDesign="Translucent" condensed="false">
+                                        <attributes>
+                                            <ObjectAttribute title="Folio" text="2312316" active="true"/>
+                                            <ObjectAttribute title="Sucursal." text="080-Madero" active="true"/>
+                                            <ObjectAttribute title="Fecha" text="09/12/2017" active="true"/>
+                                        </attributes>
+                                        <statuses/>
+                                    </ObjectHeader>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                            <layout:BlockLayoutCell width="2" title="" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <ObjectHeader intro="" title="" number="" numberUnit="" numberState="None" showMarkers="false" markFavorite="false" markFlagged="false" backgroundDesign="Translucent" condensed="false">
+                                        <attributes>
+                                            <ObjectAttribute title="Folio" text="2312316" active="true"/>
+                                            <ObjectAttribute title="Sucursal." text="080-Madero" active="true"/>
+                                            <ObjectAttribute title="Fecha" text="09/12/2017" active="true"/>
+                                        </attributes>
+                                        <statuses/>
+                                    </ObjectHeader>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                </layout:content>
+            </layout:BlockLayout>
+            <layout:BlockLayout background="Default">
+                <layout:content>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="2" title="" titleAlignment="End" titleLevel="Auto">
+                                <layout:content>
+                                    <Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                                        <infoToolbar>
+                                            <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                                <content>
+                                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </content>
+                                            </Toolbar>
+                                        </infoToolbar>
+                                        <headerToolbar>
+                                            <Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+                                                <content>
+                                                    <Title text="Artículos (3)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+                                                    <ToolbarSpacer width=""/>
+                                                    <Button text="" type="Transparent" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress26"/>
+                                                </content>
+                                                <tooltip/>
+                                            </Toolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Artículo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Precio" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Cantidad" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Descuento" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Total" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
+                                                    <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
+                                                    <ObjectNumber number="1" unit="Unit" emphasized="true" state="None"/>
+                                                    <Text text="30%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="999" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
+                                                    <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
+                                                    <ObjectNumber number="1" unit="Unit" emphasized="true" state="None"/>
+                                                    <Text text="0%" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="999" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                    <layout:BlockLayout background="Default">
+                                        <layout:content>
+                                            <layout:BlockLayoutRow scrollable="false">
+                                                <layout:content>
+                                                    <layout:BlockLayoutCell width="2" title="Comentarios" titleAlignment="Begin" titleLevel="Auto">
+                                                        <layout:content>
+                                                            <TextArea value="" rows="7" placeholder="Comentarios" cols="135" maxLength="0" wrapping="None" visible="true"/>
+                                                        </layout:content>
+                                                    </layout:BlockLayoutCell>
+                                                    <layout:BlockLayoutCell width="2" title="" titleAlignment="Left" titleLevel="Auto">
+                                                        <layout:content>
+                                                            <List mode="SingleSelectMaster" width="100%" headerText="" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                                                                <infoToolbar>
+                                                                    <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                                                        <content>
+                                                                            <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                                        </content>
+                                                                    </Toolbar>
+                                                                </infoToolbar>
+                                                                <headerToolbar/>
+                                                                <items>
+                                                                    <ObjectListItem intro="" title="Descuento total" number="999" numberUnit="MXN" numberState="None" type="Active" selected="false" showMarkers="false">
+                                                                        <attributes/>
+                                                                        <firstStatus/>
+                                                                        <secondStatus/>
+                                                                    </ObjectListItem>
+                                                                    <ObjectListItem intro="" title="Subtotal" number="999" numberUnit="MXN" numberState="None" type="Active" selected="false" showMarkers="false">
+                                                                        <attributes/>
+                                                                        <firstStatus/>
+                                                                        <secondStatus/>
+                                                                    </ObjectListItem>
+                                                                    <ObjectListItem intro="" title="IVA" number="999" numberUnit="MXN" numberState="None" type="Active" selected="false" showMarkers="false">
+                                                                        <attributes/>
+                                                                        <firstStatus/>
+                                                                        <secondStatus/>
+                                                                    </ObjectListItem>
+                                                                    <ObjectListItem intro="" title="Total" number="999" numberUnit="MXN" numberState="None" type="Active" selected="false" showMarkers="false">
+                                                                        <attributes/>
+                                                                        <firstStatus/>
+                                                                        <secondStatus/>
+                                                                    </ObjectListItem>
+                                                                    <ObjectListItem intro="" title="Total" number="999" numberUnit="MXN" numberState="None" type="Active" selected="false" showMarkers="false">
+                                                                        <attributes/>
+                                                                        <firstStatus/>
+                                                                        <secondStatus/>
+                                                                    </ObjectListItem>
+                                                                </items>
+                                                            </List>
+                                                        </layout:content>
+                                                    </layout:BlockLayoutCell>
+                                                </layout:content>
+                                            </layout:BlockLayoutRow>
+                                        </layout:content>
+                                    </layout:BlockLayout>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                </layout:content>
+            </layout:BlockLayout>
+        </content>
+        <footer>
+            <Bar design="Auto">
+                <contentLeft/>
+                <contentMiddle/>
+                <contentRight>
+                    <Button text="Transferir a remisión" type="Default" icon="sap-icon://enter-more" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress27"/>
+                    <Button text="Transferir a nuevo pedido" type="Default" icon="sap-icon://write-new-document" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress28"/>
+                </contentRight>
+            </Bar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

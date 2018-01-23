@@ -1,0 +1,47 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.Dormimundo" xmlns="sap.m" xmlns:tnt="sap.tnt">
+    <Page title="Menú de opciones" showHeader="true" showFooter="true" showNavButton="false">
+        <content>
+            <ToolbarSpacer width=""/>
+            <VBox alignItems="Center" direction="Column" fitContainer="true" width="auto" height="auto" justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+                <items>
+                    <Image src="/webapp/resources/logo_small.png" height="145px" width="165px" densityAware="false" press="_onImagePress"/>
+                </items>
+                <layoutData/>
+            </VBox>
+            <tnt:NavigationList width="auto" expanded="true">
+                <tnt:items>
+                    <tnt:NavigationListItem icon="sap-icon://action" expanded="true" hasExpander="true" text="Operaciones">
+                        <tnt:items>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Remisiones" select="_onNavigationListItemFirstLevelSelect"/>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Pedidos" select="_onNavigationListItemFirstLevelSelect1"/>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Abonos" select="_onNavigationListItemFirstLevelSelect2"/>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Reimpresión de pedidos" select="_onNavigationListItemFirstLevelSelect3"/>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Actualizar datos de entrega" select="_onNavigationListItemFirstLevelSelect4"/>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Transferir pedidos" select="_onNavigationListItemFirstLevelSelect5"/>
+                        </tnt:items>
+                    </tnt:NavigationListItem>
+                    <tnt:NavigationListItem icon="sap-icon://expense-report" expanded="true" hasExpander="true" text="Reportes">
+                        <tnt:items>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Artículos" select="_onNavigationListItemFirstLevelSelect6"/>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Inventario" select="_onNavigationListItemFirstLevelSelect7"/>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Ingresos"/>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Diario de Ventas" select="_onNavigationListItemFirstLevelSelect8"/>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Corte de Caja" select="_onNavigationListItemFirstLevelSelect9"/>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Transferencias" select="_onNavigationListItemFirstLevelSelect10"/>
+                        </tnt:items>
+                    </tnt:NavigationListItem>
+                </tnt:items>
+            </tnt:NavigationList>
+        </content>
+        <footer>
+            <Bar design="Auto">
+                <contentLeft>
+                    <Button id="logout" text="" type="Default" icon="sap-icon://log" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onCloseSession"/>
+                </contentLeft>
+                <contentMiddle/>
+                <contentRight/>
+            </Bar>
+        </footer>
+        <headerContent/>
+    </Page>
+</mvc:View>

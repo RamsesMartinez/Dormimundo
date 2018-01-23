@@ -1,0 +1,20 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.CapturaDePedidosCierreDePedido" xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Page showHeader="true" title="Cierre de pedido" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress6">
+        <content>
+            <core:Icon src="sap-icon://notes" size="96px" height="760px" width="100%" visible="true"/>
+        </content>
+        <footer>
+            <Bar design="Auto">
+                <contentLeft/>
+                <contentMiddle/>
+                <contentRight>
+                    <Button text="Imprimir" type="Transparent" icon="sap-icon://print" iconFirst="true" width="135px" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Finalizar" type="Accept" iconFirst="true" width="135px" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress16"/>
+                </contentRight>
+            </Bar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

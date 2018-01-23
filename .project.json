@@ -1,0 +1,121 @@
+{
+    "dataBinding": {
+        "/webapp/view/Login.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dormimundo.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CapturaDeRemision_1.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CapturaDeRemisionDatosDeCliente.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CapturaDeRemisionFormasDePago.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CapturaDeRemisionCierreDeRemision.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CapturaDeRemisionReposicionDeInventario.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CapturaDePedidos.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CapturaDePedidosDatosDeEntrega.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CapturaDePedidosDatosDelCliente.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CapturaDePedidosFormasDePago.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CapturaDePedidosCierreDePedido.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/AbonosBusquedaDePedidos.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/AbonosAbonoDePedidos.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/AbonosFormasDePago.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/AbonosCierreDeAbono.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/ActualizacionPedidosBusquedaDePedido.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/ActualizacionPedidosActualizacionDeDatosDeEntrega.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/ReimpresionPedidosBusquedaDePedido.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/ReimpresionPedidosReimpresionDelPedido.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/TransferirPedidosBuscarPedido.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/TransferirPedidosTipoDeTransferencia.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/ReporteDeInventario.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/ReporteDeArticulos.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/DiarioDeVentas.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/CorteDeCaja.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Transferencias.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Home.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog2.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog5.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog4.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog11.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog10.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog6.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog3.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog8.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog1.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog7.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Dialog9.view.xml": {
+            "entitySet": ""
+        } 
+    }
+}

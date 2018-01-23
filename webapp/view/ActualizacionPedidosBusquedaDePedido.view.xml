@@ -1,0 +1,171 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.ActualizacionPedidosBusquedaDePedido" xmlns="sap.m" xmlns:layout="sap.ui.layout">
+    <Page showHeader="true" title="Búsqueda de pedidos" showFooter="true" showNavButton="false">
+        <content>
+            <layout:BlockLayout background="Default">
+                <layout:content>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="1" title="Búsqueda de pedido" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <HBox alignItems="Center" direction="Row" fitContainer="false" width="100%" height="47.98828125px" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                                        <items>
+                                            <Label text="Sucursal" design="Standard" width="85px" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                            <SearchField placeholder="Buscar sucursal" showSearchButton="true" visible="true" width="100%"/>
+                                        </items>
+                                        <layoutData/>
+                                    </HBox>
+                                    <HBox alignItems="Center" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                                        <items>
+                                            <Label text="Pedido" design="Standard" width="85px" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                            <SearchField placeholder="Buscar pedido" showSearchButton="true" visible="true" width="100%"/>
+                                        </items>
+                                        <layoutData/>
+                                    </HBox>
+                                    <HBox alignItems="Center" direction="Row" fitContainer="false" width="888.22265625px" height="47.98828125px" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                                        <items>
+                                            <Label text="Cliente" design="Standard" width="85px" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                            <SearchField placeholder="Buscar cliente" showSearchButton="true" visible="true" width="100%"/>
+                                        </items>
+                                        <layoutData/>
+                                    </HBox>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="4" title="" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                                        <infoToolbar>
+                                            <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                                <content>
+                                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </content>
+                                            </Toolbar>
+                                        </infoToolbar>
+                                        <headerToolbar/>
+                                        <columns>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Sucursal" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Fecha" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Cliente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Pedido" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Importe" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Saldo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Active" press="_onRowPress1">
+                                                <cells>
+                                                    <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
+                                                    <Text text="Supplier Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active" press="_onRowPress2">
+                                                <cells>
+                                                    <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
+                                                    <Text text="Supplier Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active" press="_onRowPress3">
+                                                <cells>
+                                                    <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
+                                                    <Text text="Supplier Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active" press="_onRowPress4">
+                                                <cells>
+                                                    <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
+                                                    <Text text="Supplier Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                </layout:content>
+            </layout:BlockLayout>
+        </content>
+        <footer>
+            <Bar design="Auto">
+                <contentLeft/>
+                <contentMiddle/>
+                <contentRight/>
+            </Bar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

@@ -1,0 +1,333 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.CorteDeCaja" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:unified="sap.ui.unified" xmlns:core="sap.ui.core">
+    <Page showHeader="true" title="Corte de Caja" showFooter="true" showNavButton="false">
+        <content>
+            <layout:BlockLayout background="Default">
+                <layout:content>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="4" title="" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <ObjectHeader intro="" title="002 Reforma" icon="sap-icon://retail-store" number="" numberUnit="" numberState="None" showMarkers="false" markFavorite="false" markFlagged="false" backgroundDesign="Solid" condensed="false">
+                                        <attributes/>
+                                        <statuses>
+                                            <ObjectStatus title="Desde" text="01/01/2015" state="None"/>
+                                            <ObjectStatus title="Hasta" text="01/01/2016" state="None"/>
+                                        </statuses>
+                                    </ObjectHeader>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="1" title="Resumen de movimientos general" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                                        <infoToolbar>
+                                            <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                                <content>
+                                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </content>
+                                            </Toolbar>
+                                        </infoToolbar>
+                                        <headerToolbar/>
+                                        <columns>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Documento" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="De folio" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="A folio" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Subtotal" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Impuesto" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Total" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <Text text="Remisiones" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <Text text="0203233" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <Text text="0320336" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <Text text="Pedidos" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <Text text="0203233" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <Text text="0320336" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <Text text="Abonos" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <Text text="0203233" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <Text text="0320336" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="1" title="Detalle por formas de pago" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                                        <infoToolbar>
+                                            <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                                <content>
+                                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </content>
+                                            </Toolbar>
+                                        </infoToolbar>
+                                        <headerToolbar/>
+                                        <columns>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Concepto" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer>
+                                                    <Text text="Total:" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </footer>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Importe" width="auto" maxLines="1" wrapping="false" textAlign="Right" textDirection="Inherit"/>
+                                                </header>
+                                                <footer>
+                                                    <Text text="-" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </footer>
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <Text text="Efectivo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <Text text="6 meses Banamex" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <Text text="Bancomer" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <Text text="Banamex" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <Text text="12 meses Bancomer" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="4" title="Lista de Folios" titleAlignment="Begin" titleLevel="Auto">
+                                <layout:content>
+                                    <Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                                        <infoToolbar>
+                                            <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                                <content>
+                                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </content>
+                                            </Toolbar>
+                                        </infoToolbar>
+                                        <headerToolbar/>
+                                        <columns>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Movimiento / Folio" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer>
+                                                    <Text text="Total:" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </footer>
+                                            </Column>
+                                            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Formas de Pago" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer/>
+                                            </Column>
+                                            <Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Importe Bruto" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer>
+                                                    <Text text="-" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </footer>
+                                            </Column>
+                                            <Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Desc. Importe" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer>
+                                                    <Text text="-" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </footer>
+                                            </Column>
+                                            <Column width="auto" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                                <header>
+                                                    <Text text="Importe Neto" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </header>
+                                                <footer>
+                                                    <Text text="-" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </footer>
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <ObjectIdentifier title="Remision" text="R033213213" titleActive="false" visible="true"/>
+                                                    <core:Icon src="sap-icon://navigation-down-arrow" size="16px" height="16px" width="16px" visible="true"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <Text text="Efectivo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <Text text="Cheque" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <ObjectIdentifier title="Pedido" text="P002392" titleActive="false" visible="true"/>
+                                                    <core:Icon src="sap-icon://navigation-down-arrow" size="16px" height="16px" width="16px" visible="true"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <Text text="Efectivo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <layout:HorizontalLayout>
+                                                        <layout:content/>
+                                                    </layout:HorizontalLayout>
+                                                    <Text text="12 meses Banamex" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <ObjectIdentifier title="Pedido" text="P2333002" titleActive="false" visible="true"/>
+                                                    <core:Icon src="sap-icon://feeder-arrow" size="16px" height="16px" width="16px" visible="true"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                            <ColumnListItem type="Active">
+                                                <cells>
+                                                    <ObjectIdentifier title="Abono" text="A323235" titleActive="false" visible="true"/>
+                                                    <Text text="Efectivo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                    <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                                </layout:content>
+                            </layout:BlockLayoutCell>
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                </layout:content>
+            </layout:BlockLayout>
+        </content>
+        <footer>
+            <Bar design="Auto">
+                <contentLeft/>
+                <contentMiddle/>
+                <contentRight>
+                    <Button text="Finalizar" type="Emphasized" iconFirst="true" width="135px" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress7"/>
+                </contentRight>
+            </Bar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

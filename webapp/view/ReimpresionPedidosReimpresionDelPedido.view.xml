@@ -1,0 +1,21 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.ReimpresionPedidosReimpresionDelPedido" xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Page showHeader="true" title="Reimpresión del pedido" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress10">
+        <content>
+            <core:Icon src="sap-icon://notes" size="128px" height="760px" width="100%" visible="true"/>
+        </content>
+        <footer>
+            <Bar design="Auto">
+                <contentLeft/>
+                <contentMiddle/>
+                <contentRight>
+                    <Button text="Imprimir" type="Default" icon="sap-icon://print" iconFirst="true" width="135px" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Enviar" type="Transparent" icon="sap-icon://email" iconFirst="true" width="135px" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Finalizar" type="Accept" iconFirst="true" width="135px" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress25"/>
+                </contentRight>
+            </Bar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

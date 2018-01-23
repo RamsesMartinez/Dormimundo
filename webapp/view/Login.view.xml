@@ -1,0 +1,35 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.Login" xmlns="sap.m">
+    <Page showHeader="false" title="Inicio de Sesión" showFooter="true" showNavButton="false">
+        <content>
+            <Bar design="Auto">
+                <contentLeft/>
+                <contentMiddle>
+                    <Text text="Inicio de Sesión" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </contentMiddle>
+                <contentRight/>
+            </Bar>
+            <VBox alignItems="Center" direction="Column" fitContainer="true" width="auto" height="95%" justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+                <items>
+                    <Image src="/webapp/resources/logo_small.png" height="185px" width="205px" densityAware="false"/>
+                    <Input id="txtUserCode" value="{/userCode}" placeholder="{i18n>codigoEmpleadoLogin}" type="Number" showValueHelp="false" enabled="true" visible="true" width="15rem" valueHelpOnly="false" maxLength="0" change="_onChangeUserCode" liveChange="_onLiveChangeUserCode" />
+                    <Input id="txtUserName" value="{/userName}" placeholder="" type="Text" showValueHelp="false" enabled="false" visible="true" width="15rem" valueHelpOnly="false" maxLength="0"/>
+                    <Input id="txtUserPassword" value="{/userPassword}" placeholder="{i18n>contraseñaEmpleadoLogin}" type="Password" showValueHelp="false" enabled="true" visible="true" width="15rem" valueHelpOnly="false" maxLength="0" liveChange="_onLiveChangePassword" change="_onButtonLogic" />
+                    <Button id="btnLogin" text="{i18n>btnLogin}" type="Emphasized" iconFirst="true" width="15rem" enabled="false" visible="true" iconDensityAware="false" press="_onButtonLogin"/>
+                </items>
+                <layoutData/>
+            </VBox>
+        </content>
+        <footer>
+            <Bar design="Auto">
+                <contentLeft/>
+                <contentMiddle/>
+                <contentRight>
+                    <Text text="Dormimundo ©" width="125px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </contentRight>
+            </Bar>
+        </footer>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

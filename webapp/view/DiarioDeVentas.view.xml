@@ -1,0 +1,310 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.DiarioDeVentas" xmlns="sap.m" xmlns:unified="sap.ui.unified" xmlns:layout="sap.ui.layout">
+    <Page showHeader="true" title="Diario de ventas" showFooter="true" showNavButton="false">
+        <content>
+            <Table width="100%" noDataText="Sin Datos" mode="None" showSeparators="None" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                <infoToolbar>
+                    <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                        <content>
+                            <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                        </content>
+                    </Toolbar>
+                </infoToolbar>
+                <headerToolbar>
+                    <Toolbar width="auto" height="46px" design="Info" visible="true" enabled="true">
+                        <content>
+                            <Title text="Fecha: 02/01/2018" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+                            <ToolbarSpacer width=""/>
+                            <Title text="" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+                        </content>
+                        <tooltip/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Folio" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Movimiento" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Subtotal" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Impuesto" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Total de Facturas" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <layout:HorizontalLayout>
+                                <layout:content/>
+                            </layout:HorizontalLayout>
+                            <Label text="Total Pedidos:" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <layout:HorizontalLayout>
+                                <layout:content/>
+                            </layout:HorizontalLayout>
+                            <Label text="Total Abonos" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <layout:HorizontalLayout>
+                                <layout:content/>
+                            </layout:HorizontalLayout>
+                            <Label text="Total Remisiones" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <layout:HorizontalLayout>
+                                <layout:content/>
+                            </layout:HorizontalLayout>
+                            <Label text="Total 02/01/2018" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <Table width="100%" noDataText="Sin Datos" mode="None" showSeparators="None" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                <infoToolbar>
+                    <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                        <content>
+                            <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                        </content>
+                    </Toolbar>
+                </infoToolbar>
+                <headerToolbar>
+                    <Toolbar width="auto" height="46px" design="Info" visible="true" enabled="true">
+                        <content>
+                            <Title text="Fecha: 01/01/2018" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+                            <ToolbarSpacer width=""/>
+                            <Title text="" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+                        </content>
+                        <tooltip/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Folio" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Movimiento" width="auto" maxLines="1" wrapping="true" textAlign="Right" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Impuesto" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Total de Facturas" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="321654897" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Venta" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <layout:HorizontalLayout>
+                                <layout:content/>
+                            </layout:HorizontalLayout>
+                            <Label text="Total Pedidos:" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <layout:HorizontalLayout>
+                                <layout:content/>
+                            </layout:HorizontalLayout>
+                            <Label text="Total Abonos:" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <layout:HorizontalLayout>
+                                <layout:content/>
+                            </layout:HorizontalLayout>
+                            <Label text="total Remisiones:" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <layout:HorizontalLayout>
+                                <layout:content/>
+                            </layout:HorizontalLayout>
+                            <Label text="Total 01/01/2018:" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                            <unified:Currency value="3200.23" currency="MXN" useSymbol="false" maxPrecision="3"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <ObjectHeader intro="" title="Total General" icon="sap-icon://money-bills" number="999.99" numberUnit="MXN" numberState="None" showMarkers="false" markFavorite="false" markFlagged="false" backgroundDesign="Solid" condensed="false">
+                <attributes/>
+                <statuses/>
+            </ObjectHeader>
+        </content>
+        <footer>
+            <Bar design="Auto">
+                <contentLeft/>
+                <contentMiddle/>
+                <contentRight>
+                    <Button text="Imprimir" type="Default" icon="sap-icon://print" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </contentRight>
+            </Bar>
+        </footer>
+        <headerContent>
+            <Text text="Sucursal 002" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+        </headerContent>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>
