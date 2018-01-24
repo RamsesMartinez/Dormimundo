@@ -105,11 +105,30 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
     },
 
     _onCloseSession: function(oEvent) {
+
       var oBindingContext = oEvent.getSource().getBindingContext();
-      return new Promise(function(fnResolve) {
-        this.doNavigate("Login", oBindingContext, fnResolve, ""
-        );
-      }.bind(this)).catch(function (err) { if (err !== undefined) { MessageBox.error(err.message); }});
+      
+      $.ajax({
+        method: 'POST',
+        url: '/connect/session.php',
+        type: 'json',
+        async: false,
+        data: {
+          'type': 'close_session',
+        },
+        success: function (result) {
+          var jsonResult = JSON.parse(result);
+          location.reload();
+
+        },
+        error: function (err) {
+          console.log(err);
+        }
+      });
+
+
+
+    return;
     },
 
     _onImagePress: function (oEvent) {

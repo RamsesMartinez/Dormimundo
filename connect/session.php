@@ -14,6 +14,8 @@ require_once("DB.class.php");
 
 $conn = Db::getInstance();
 
+session_start();
+
 // Select the Request Method
 switch($_SERVER['REQUEST_METHOD']) {
     case 'GET': $the_request = &$_GET;
@@ -23,6 +25,7 @@ switch($_SERVER['REQUEST_METHOD']) {
     case 'POST': $the_request = &$_POST;
         $type = $_POST['type'];
 
+        // Obtención de nombre de usuario
         if ($type == 'userCode') {
             $empId = $_POST["value"];
             $sql = "SELECT empID, firstName, lastName FROM ohem WHERE empID = $empId";
@@ -40,20 +43,28 @@ switch($_SERVER['REQUEST_METHOD']) {
                     printJsonResult($arrayEmpleado,0 );
                 }
             }
-        } elseif ($type = 'login') {
+        // Inicio de Sesión
+        } elseif ($type == 'start_session') {
             $userCode = $_POST['sUserCode'];
+            $userName = $_POST['sUserName'];
             $userPassword = $_POST['sUserPassword'];
 
             // La contraseña no viene hasheada... por lo que se realiza la consulta directamente
             $sql = "SELECT empID, U_SYS_PASS FROM ohem WHERE empID=$userCode AND U_SYS_PASS=$userPassword";
             $res = $conn->ejecutar($sql);
 
-            if ($res->num_rows > 0) {
-                echo json_encode(array("login"=>true),0);
+            if ($res->num_rows > 0) { // Existe el usuario
+                // Crea la sesión
+                $_SESSION['username'] = $userName;
+
+                echo json_encode(array("session"=>true),0);
             } else {
-                echo json_encode(array("login"=>false),1);
+                echo json_encode(array("session"=>false),1);
             }
 
+        } elseif ($type == 'close_session') {
+            session_destroy();
+            echo json_encode(array("close_session"=>true),0);
         }
 
         break;

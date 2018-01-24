@@ -67,7 +67,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
           console.log(err);
         }
       });
-
     },
 
     _onLiveChangeUserCode: function (oEvent) {
@@ -75,7 +74,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
       oView.byId('btnLogin').setEnabled(false);
       oView.byId('txtUserPassword').setValue('');
-
     },
 
     _onLiveChangePassword: function(oEvent) {
@@ -93,12 +91,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
       }
     },
 
-
     _onButtonLogin: function (oEvent) {
       var oView = this.getView();
       var sUserCode = oView.byId('txtUserCode').mProperties.value;
       var sUserPassword = oView.byId('txtUserPassword').mProperties.value;
-      var bSuccessLogin = false;
+      var sUserName = oView.byId('txtUserName').mProperties.value;
 
       // Valida si la contraseña y usuario son correctos
       $.ajax({
@@ -107,14 +104,15 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
         type: 'json',
         async: false,
         data: {
-          'type': 'login',
+          'type': 'start_session',
           'sUserCode': sUserCode,
+          'sUserName': sUserName,
           'sUserPassword': sUserPassword
         },
         success: function (result) {
           var jsonResult = JSON.parse(result);
-          if (jsonResult.login === true) {
-            bSuccessLogin = true;
+          if (jsonResult.session === true) {
+            location.reload();
           } else {
             alert("Revisa tus credenciales de acceso");
           }
@@ -124,14 +122,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
         }
       });
 
-      if (bSuccessLogin === true) {
-        var oBindingContext = oEvent.getSource().getBindingContext();
-
-        return new Promise(function(fnResolve) {
-          this.doNavigate("Home", oBindingContext, fnResolve, ""
-          );
-        }.bind(this)).catch(function (err) { if (err !== undefined) { MessageBox.error(err.message); }});
-      }
     },
 
     doNavigate: function (sRouteName, oBindingContext, fnPromiseResolve, sViaRelation) {
@@ -194,6 +184,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
       this.mBindingOptions = {};
       this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
       this.oRouter.getTarget("Login").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
+
       var oView = this.getView();
       var sUserName = this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("nombreEmpleadoLogin");
 

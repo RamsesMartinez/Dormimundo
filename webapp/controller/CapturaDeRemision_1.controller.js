@@ -11,9 +11,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		var oParams = {}; 
 		
 		    if (sap.ui.Device.system.desktop) {
-		        sap.ui.getCore().byId("App").setMode(sap.m.SplitAppMode.StretchCompressMode);
+		        //sap.ui.getCore().byId("App").setMode(sap.m.SplitAppMode.StretchCompressMode);
 		    } else {
-		        sap.ui.getCore().byId("App").setMode(sap.m.SplitAppMode.ShowHideMode);
+		        //sap.ui.getCore().byId("App").setMode(sap.m.SplitAppMode.ShowHideMode);
 		    } 
 		if (oEvent.mParameters.data.context) { 
 		    this.sContext = oEvent.mParameters.data.context;
@@ -23,7 +23,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		        this.getView().bindObject(oPath);
 		    } 
 		}
-		
 		
 		
         },

@@ -5,7 +5,7 @@
                 <layout:content>
                     <layout:BlockLayoutRow scrollable="false">
                         <layout:content>
-                            <layout:BlockLayoutCell width="1" title="Agente" titleAlignment="Begin" titleLevel="Auto">
+                            <layout:BlockLayoutCell width="2" title="Agente" titleAlignment="Begin" titleLevel="Auto">
                                 <layout:content>
                                     <VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
                                         <items>
@@ -15,14 +15,22 @@
                                     </VBox>
                                 </layout:content>
                             </layout:BlockLayoutCell>
-                            <layout:BlockLayoutCell width="1" title="Cliente" titleAlignment="Begin" titleLevel="Auto">
+                            <layout:BlockLayoutCell width="2" title="Cliente" titleAlignment="Begin" titleLevel="Auto">
                                 <layout:content>
                                     <Text text="Nombre del cliente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
                                 </layout:content>
                             </layout:BlockLayoutCell>
-                            <layout:BlockLayoutCell width="1" title="Fecha" titleAlignment="Begin" titleLevel="Auto">
+                        </layout:content>
+                    </layout:BlockLayoutRow>
+                </layout:content>
+            </layout:BlockLayout>
+            <layout:BlockLayout background="Default">
+                <layout:content>
+                    <layout:BlockLayoutRow scrollable="false">
+                        <layout:content>
+                            <layout:BlockLayoutCell width="2" title="" titleAlignment="End" titleLevel="Auto">
                                 <layout:content>
-                                    <DateTimeInput value="01/01/2018" type="Date" enabled="false" visible="true" width="auto"/>
+                                    <DateTimeInput type="DateTime" enabled="true" visible="true" width="auto"/>
                                 </layout:content>
                             </layout:BlockLayoutCell>
                         </layout:content>
