@@ -199,7 +199,7 @@ if (sPath === "undefined") {
     },
     _onNavigationListItemFirstLevelSelect: function (oEvent) {
 
-            var sDialogName = "Dialog12";
+            var sDialogName = "Dialog_BuscarCliente";
         this.mDialogs = this.mDialogs || {};
         var oDialog = this.mDialogs[sDialogName];
         var oSource = oEvent.getSource();

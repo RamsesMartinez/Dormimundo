@@ -98,7 +98,7 @@ _onButtonPress27: function (oEvent) {
 		
 		return new Promise(function(fnResolve) {
 		
-		    this.doNavigate("CapturaDeRemision_1", oBindingContext, fnResolve, ""
+		    this.doNavigate("CapturaDeRemision", oBindingContext, fnResolve, ""
 		    );
 		}.bind(this)).catch(function (err) { if (err !== undefined) { MessageBox.error(err.message); }});
 		

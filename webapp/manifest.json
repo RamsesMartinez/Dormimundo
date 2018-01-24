@@ -94,10 +94,10 @@
           "viewLevel": 1,
           "transition": "slide"
         },
-        "CapturaDeRemision_1": {
+        "CapturaDeRemision": {
           "controlAggregation": "detailPages",
-          "viewName": "CapturaDeRemision_1",
-          "viewId": "CapturaDeRemision_1",
+          "viewName": "CapturaDeRemision",
+          "viewId": "CapturaDeRemision",
           "viewLevel": 13,
           "transition": "slide"
         },
@@ -302,11 +302,11 @@
           ]
         },
         {
-          "pattern": "Dormimundo/CapturaDeRemision_1",
-          "name": "CapturaDeRemision_1",
+          "pattern": "Dormimundo/CapturaDeRemision",
+          "name": "CapturaDeRemision",
           "target": [
             "Dormimundo",
-            "CapturaDeRemision_1"
+            "CapturaDeRemision"
           ]
         },
         {

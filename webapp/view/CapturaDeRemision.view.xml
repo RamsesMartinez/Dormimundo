@@ -1,4 +1,4 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.CapturaDeRemision_1" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:unified="sap.ui.unified">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.CapturaDeRemision" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:unified="sap.ui.unified">
     <Page showHeader="true" title="Captura de remisión" showFooter="true" showNavButton="false" navButtonPress="_onPageNavButtonPress">
         <content>
             <layout:BlockLayout background="Dashboard">

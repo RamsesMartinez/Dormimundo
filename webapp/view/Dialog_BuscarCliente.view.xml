@@ -1,4 +1,4 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.Dialog12" xmlns="sap.m">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.Dialog_BuscarCliente" xmlns="sap.m">
     <Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Buscar Cliente" type="Standard" verticalScrolling="true">
         <content>
             <SearchField placeholder="Buscar cliente" showSearchButton="true" visible="true" width="auto"/>

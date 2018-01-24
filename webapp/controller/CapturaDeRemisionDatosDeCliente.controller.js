@@ -130,7 +130,7 @@ onInit: function () {
                     if (oPage.getShowNavButton && !oPage.getShowNavButton()) {
                         oPage.setShowNavButton(true);
                         oPage.attachNavButtonPress(function () {
-                            this.oRouter.navTo("CapturaDeRemision_1", {}, true);
+                            this.oRouter.navTo("CapturaDeRemision", {}, true);
                         }.bind(this));
                     }
                 }

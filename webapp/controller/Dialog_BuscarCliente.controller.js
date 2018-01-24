@@ -5,7 +5,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
     ], function(BaseController, MessageBox, Utilities, History) {
     "use strict";
 
-    return BaseController.extend("com.sap.build.standard.dormimundo.controller.Dialog12", {
+    return BaseController.extend("com.sap.build.standard.dormimundo.controller.Dialog_BuscarCliente", {
     setRouter: function (oRouter) {
             		                this.oRouter = oRouter;
 		
@@ -86,7 +86,7 @@ _onButtonPress34: function (oEvent) {
 		
 		return new Promise(function(fnResolve) {
 		
-		    this.doNavigate("CapturaDeRemision_1", oBindingContext, fnResolve, ""
+		    this.doNavigate("CapturaDeRemision", oBindingContext, fnResolve, ""
 		    );
 		}.bind(this)).catch(function (err) { if (err !== undefined) { MessageBox.error(err.message); }});
 		

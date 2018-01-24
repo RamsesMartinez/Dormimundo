@@ -43,7 +43,7 @@
                                     <Label text="Calle" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="100"/>
+                                    <Input placeholder="Calle" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="100"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
