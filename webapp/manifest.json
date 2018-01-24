@@ -84,14 +84,14 @@
           "controlAggregation": "detailPages",
           "viewName": "Login",
           "viewId": "Login",
-          "viewLevel": 1,
+          "viewLevel": 5,
           "transition": "slide"
         },
         "Dormimundo": {
           "controlAggregation": "masterPages",
           "viewName": "Dormimundo",
           "viewId": "Dormimundo",
-          "viewLevel": 2,
+          "viewLevel": 1,
           "transition": "slide"
         },
         "CapturaDeRemision_1": {
@@ -105,119 +105,119 @@
           "controlAggregation": "detailPages",
           "viewName": "CapturaDeRemisionDatosDeCliente",
           "viewId": "CapturaDeRemisionDatosDeCliente",
-          "viewLevel": 21,
+          "viewLevel": 23,
           "transition": "slide"
         },
         "CapturaDeRemisionFormasDePago": {
           "controlAggregation": "detailPages",
           "viewName": "CapturaDeRemisionFormasDePago",
           "viewId": "CapturaDeRemisionFormasDePago",
-          "viewLevel": 22,
+          "viewLevel": 24,
           "transition": "slide"
         },
         "CapturaDeRemisionCierreDeRemision": {
           "controlAggregation": "detailPages",
           "viewName": "CapturaDeRemisionCierreDeRemision",
           "viewId": "CapturaDeRemisionCierreDeRemision",
-          "viewLevel": 23,
+          "viewLevel": 25,
           "transition": "slide"
         },
         "CapturaDeRemisionReposicionDeInventario": {
           "controlAggregation": "detailPages",
           "viewName": "CapturaDeRemisionReposicionDeInventario",
           "viewId": "CapturaDeRemisionReposicionDeInventario",
-          "viewLevel": 24,
+          "viewLevel": 26,
           "transition": "slide"
         },
         "CapturaDePedidos": {
           "controlAggregation": "detailPages",
           "viewName": "CapturaDePedidos",
           "viewId": "CapturaDePedidos",
-          "viewLevel": 14,
+          "viewLevel": 16,
           "transition": "slide"
         },
         "CapturaDePedidosDatosDeEntrega": {
           "controlAggregation": "detailPages",
           "viewName": "CapturaDePedidosDatosDeEntrega",
           "viewId": "CapturaDePedidosDatosDeEntrega",
-          "viewLevel": 17,
+          "viewLevel": 19,
           "transition": "slide"
         },
         "CapturaDePedidosDatosDelCliente": {
           "controlAggregation": "detailPages",
           "viewName": "CapturaDePedidosDatosDelCliente",
           "viewId": "CapturaDePedidosDatosDelCliente",
-          "viewLevel": 18,
+          "viewLevel": 20,
           "transition": "slide"
         },
         "CapturaDePedidosFormasDePago": {
           "controlAggregation": "detailPages",
           "viewName": "CapturaDePedidosFormasDePago",
           "viewId": "CapturaDePedidosFormasDePago",
-          "viewLevel": 19,
+          "viewLevel": 21,
           "transition": "slide"
         },
         "CapturaDePedidosCierreDePedido": {
           "controlAggregation": "detailPages",
           "viewName": "CapturaDePedidosCierreDePedido",
           "viewId": "CapturaDePedidosCierreDePedido",
-          "viewLevel": 20,
+          "viewLevel": 22,
           "transition": "slide"
         },
         "AbonosBusquedaDePedidos": {
           "controlAggregation": "detailPages",
           "viewName": "AbonosBusquedaDePedidos",
           "viewId": "AbonosBusquedaDePedidos",
-          "viewLevel": 28,
+          "viewLevel": 30,
           "transition": "slide"
         },
         "AbonosAbonoDePedidos": {
           "controlAggregation": "detailPages",
           "viewName": "AbonosAbonoDePedidos",
           "viewId": "AbonosAbonoDePedidos",
-          "viewLevel": 29,
+          "viewLevel": 31,
           "transition": "slide"
         },
         "AbonosFormasDePago": {
           "controlAggregation": "detailPages",
           "viewName": "AbonosFormasDePago",
           "viewId": "AbonosFormasDePago",
-          "viewLevel": 30,
+          "viewLevel": 32,
           "transition": "slide"
         },
         "AbonosCierreDeAbono": {
           "controlAggregation": "detailPages",
           "viewName": "AbonosCierreDeAbono",
           "viewId": "AbonosCierreDeAbono",
-          "viewLevel": 25,
+          "viewLevel": 27,
           "transition": "slide"
         },
         "ActualizacionPedidosBusquedaDePedido": {
           "controlAggregation": "detailPages",
           "viewName": "ActualizacionPedidosBusquedaDePedido",
           "viewId": "ActualizacionPedidosBusquedaDePedido",
-          "viewLevel": 27,
+          "viewLevel": 29,
           "transition": "slide"
         },
         "ActualizacionPedidosActualizacionDeDatosDeEntrega": {
           "controlAggregation": "detailPages",
           "viewName": "ActualizacionPedidosActualizacionDeDatosDeEntrega",
           "viewId": "ActualizacionPedidosActualizacionDeDatosDeEntrega",
-          "viewLevel": 26,
+          "viewLevel": 28,
           "transition": "slide"
         },
         "ReimpresionPedidosBusquedaDePedido": {
           "controlAggregation": "detailPages",
           "viewName": "ReimpresionPedidosBusquedaDePedido",
           "viewId": "ReimpresionPedidosBusquedaDePedido",
-          "viewLevel": 15,
+          "viewLevel": 17,
           "transition": "slide"
         },
         "ReimpresionPedidosReimpresionDelPedido": {
           "controlAggregation": "detailPages",
           "viewName": "ReimpresionPedidosReimpresionDelPedido",
           "viewId": "ReimpresionPedidosReimpresionDelPedido",
-          "viewLevel": 16,
+          "viewLevel": 18,
           "transition": "slide"
         },
         "TransferirPedidosBuscarPedido": {
@@ -238,21 +238,21 @@
           "controlAggregation": "detailPages",
           "viewName": "ReporteDeInventario",
           "viewId": "ReporteDeInventario",
-          "viewLevel": 3,
+          "viewLevel": 2,
           "transition": "slide"
         },
         "ReporteDeArticulos": {
           "controlAggregation": "detailPages",
           "viewName": "ReporteDeArticulos",
           "viewId": "ReporteDeArticulos",
-          "viewLevel": 4,
+          "viewLevel": 3,
           "transition": "slide"
         },
         "DiarioDeVentas": {
           "controlAggregation": "detailPages",
           "viewName": "DiarioDeVentas",
           "viewId": "DiarioDeVentas",
-          "viewLevel": 5,
+          "viewLevel": 4,
           "transition": "slide"
         },
         "CorteDeCaja": {
@@ -275,6 +275,13 @@
           "viewId": "Home",
           "viewLevel": 10,
           "transition": "slide"
+        },
+        "ClientesCrearCliente": {
+          "controlAggregation": "detailPages",
+          "viewName": "ClientesCrearCliente",
+          "viewId": "ClientesCrearCliente",
+          "viewLevel": 15,
+          "transition": "slide"
         }
       },
       "routes": [
@@ -290,7 +297,7 @@
           "pattern": "Dormimundo",
           "name": "Dormimundo",
           "target": [
-            "CapturaDeRemision_1",
+            "CapturaDePedidos",
             "Dormimundo"
           ]
         },
@@ -500,6 +507,14 @@
           "target": [
             "Dormimundo",
             "Home"
+          ]
+        },
+        {
+          "pattern": "Dormimundo/ClientesCrearCliente",
+          "name": "ClientesCrearCliente",
+          "target": [
+            "Dormimundo",
+            "ClientesCrearCliente"
           ]
         },
         {

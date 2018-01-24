@@ -58,7 +58,6 @@
 </head>
 
 <body class="sapUiBody" id="content" rootUiArea ></body>
-<?php echo $session_value; ?>
 <!-- Script para detectar cambios en local -->
 <script type="text/javascript">
   var sesion_username='<?php echo $session_value;?>';

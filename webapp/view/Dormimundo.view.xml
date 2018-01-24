@@ -36,7 +36,7 @@
         <footer>
             <Bar design="Auto">
                 <contentLeft>
-                    <Button id="logout" text="" type="Default" icon="sap-icon://log" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onCloseSession"/>
+                    <Button text="" type="Default" icon="sap-icon://log" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onCloseSession"/>
                 </contentLeft>
                 <contentMiddle/>
                 <contentRight/>
