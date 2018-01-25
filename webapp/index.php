@@ -9,30 +9,49 @@
 
   <!-- Validación incial para el login o alguna vista -->
   <?php 
-    session_start();
+    session_name("loginUsuario");
+    session_start(); 
+
     $session_value = (isset($_SESSION['username'])) ? $_SESSION['username']: ''; 
-  ?>
-  <script type='text/javascript'>
-    var sesion_username='<?php echo $session_value;?>';
-    
-    // Si NO hay sesión activa
-    if (sesion_username === '') {
-      // Si NO hay sesión activa, y no está en el login, redirige al login
-      if (document.location.hash !== '' || document.location.hash.indexOf('#') > -1) { 
-        location.href = 'http://localhost/webapp/';
-        
-      }
-      
-      
-    } else {
-      // Si está en el login y hay sesión activa, redirige al home
-      if (document.location.hash === '' || document.location.hash.indexOf('Login') !== -1) { 
-        location.href = 'http://localhost/webapp/#/Dormimundo/Home/';
 
-      }
+    $TIEMPO_MAX_SESSION = 3600;  // Tiempo de duración máxima de la sesión (segundos)
+    $TIEMPO_VALIDAR_SESSION = 60;  // Tiempo para verificar la sesión (segundos)
 
+    if (isset($_SESSION['autentificado'])) {
+        date_default_timezone_set('America/Mexico_City');
+        // Calcula el tiempo transcurrido de la sesión activa
+        $fechaUltimoAcceso = $_SESSION["ultimoAcceso"];
+        $ahora = date("Y-n-j H:i:s");
+
+        $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaUltimoAcceso));
+        // Compara el tiempo transcurrido
+        if ($tiempo_transcurrido >= $TIEMPO_MAX_SESSION) {
+            //si pasaron n minutos o más
+            session_destroy(); // Destruye la sesión
+        } else {
+            // Sino, actualiza la sesión
+            $_SESSION["ultimoAcceso"] = $ahora; 
+        }
     }
 
+  ?>
+  <script type='text/javascript'>
+    var session_username='<?php echo $session_value;?>';
+
+    if (session_username !== '') { // Si hay sesión activa
+      // Si hay sesión activa
+      if (document.location.hash === '' || document.location.hash.indexOf('Login') !== -1) {
+        // Redirige al home
+        location.href = 'http://localhost/webapp/#/Dormimundo/Home/';
+      }
+
+    } else { // Si NO hay sesión activa)
+      // Si NO está en el login
+      if (!(document.location.hash === '' || document.location.hash.indexOf('Login') !== -1)) {
+        // Redirige al login
+        location.href = 'http://localhost/webapp/';
+      }
+    }
   </script>                      
     
   <script id="sap-ui-bootstrap"
@@ -58,32 +77,93 @@
 </head>
 
 <body class="sapUiBody" id="content" rootUiArea ></body>
-<!-- Script para detectar cambios en local -->
-<script type="text/javascript">
-  var sesion_username='<?php echo $session_value;?>';
-  
-  jQuery(window).bind('hashchange', function () {
-  
-    // Si NO hay sesión activa
-    if (sesion_username === '') {
-      // Si NO hay sesión activa, y no está en el login, redirige al login
-      if (document.location.hash !== '' || document.location.hash.indexOf('#') > -1) { 
-        location.href = 'http://localhost/webapp/';
-        
-      }
-      
-      
-    } else {
-      // Si está en el login y hay sesión activa, redirige al home
-      if (document.location.hash === '' || document.location.hash.indexOf('Login') !== -1) { 
-        location.href = 'http://localhost/webapp/#/Dormimundo/Home/';
 
+<script type="text/javascript">
+  $(function() {
+    var session_username = '<?php echo $session_value;?>';
+    // Tiempo para validar la sesión (en segundos por multiplo de 1000)
+    var tiempoValidarSession = parseInt('<?php echo $TIEMPO_VALIDAR_SESSION;?>') * 1000;
+    var tiempoMaxSession = parseInt('<?php  echo $TIEMPO_MAX_SESSION;?>');
+
+    document.onclick = actualizarSesion;
+    document.onkeydown = actualizarSesion;
+
+    // Verifica la sesión contínuamente
+    var refreshIntervalId = setInterval(validarSesion, tiempoValidarSession);
+
+    /**
+     * Script para detectar cambios de vistas en local
+     *
+     */
+    jQuery(window).bind('hashchange', function () {
+      if (session_username !== '') { // Si hay sesión activa
+        // Si hay sesión activa
+        if (document.location.hash === '' || document.location.hash.indexOf('Login') !== -1) {
+          // Redirige al home
+          location.href = 'http://localhost/webapp/#/Dormimundo/Home/';
+        }
+
+      } else { // Si NO hay sesión activa)
+        // Si NO está en el login
+        if (!(document.location.hash === '' || document.location.hash.indexOf('Login') !== -1)) {
+          // Redirige al login
+          location.href = 'http://localhost/webapp/';
+        }
       }
+    });
+
+    /**
+     * Función para validar cada cierto intervalo de tiempo si la sesión está activa aún
+     */
+    function validarSesion() {
+      console.log("validando sesion...");
+
+      // Si NO está en el login
+      if (!(document.location.hash === '' || document.location.hash.indexOf('Login') !== -1)) {
+        console.log("... verifica sesión");
+
+        $.ajax({
+          url: '/connect/session.php',
+          method: 'POST',
+          type: 'json',
+          data: {
+            'type': 'check_login',
+            'tiempo_max_session': tiempoMaxSession
+          },
+          success: function (result) {
+            var jsonResult = JSON.parse(result);
+
+            if (jsonResult.session === false) { //Sesión caducada
+              clearInterval(refreshIntervalId);
+              location.reload();
+            }
+
+          },
+          error: function (err) {
+            console.log(err);
+          }
+        });
+      }
+    }
+       
+    function  actualizarSesion() {
+      $.ajax({
+        url: '/connect/session.php',
+        method: 'POST',
+        type: 'json',
+        data: {
+          'type': 'update_session',
+        },
+        success: function (result) {
+          var jsonResult = JSON.parse(result);
+          console.log("sesion actualizada");
+        },
+        error: function (err) {
+          console.log(err);
+        }
+      });
 
     }
-
-    
   });
 </script>
 </html>
-

@@ -114,6 +114,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
           if (jsonResult.session === true) {
             location.reload();
           } else {
+            console.log(result);
             alert("Revisa tus credenciales de acceso");
           }
         },
