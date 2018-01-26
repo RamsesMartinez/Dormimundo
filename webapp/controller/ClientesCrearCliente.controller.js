@@ -87,12 +87,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
             }
         },
         onInit: function () {
-            // console.log(this.getManifestEntry('com.sap.build.standard.dormimundo'));
-            var oComponent = this.getOwnerComponent();
-            console.log(oComponent.getManifestEntry('sap.ui5'));
-            console.log(oComponent.getManifest());
-
-
             this.mBindingOptions = {};
             this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             this.oRouter.getTarget("ClientesCrearCliente").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));

@@ -18,9 +18,11 @@ sap.ui.define([
         },
 
         _onButtonSearchClientes: function (oEvent) {
+            var hostServidor;
             var ClientesLista;
             var oView = this.getView();
             var oModel = oView.getModel();
+            var oComponent = this.getOwnerComponent();
 
             var oTxtNombre = oView.byId('searchClienteNombre').mProperties;
             var oTxtAPaterno = oView.byId('searchClienteAPaterno').mProperties;
@@ -37,9 +39,11 @@ sap.ui.define([
 
             // Limpia el modelo de Clientes actual
             oModel.setProperty('/ClientesLista', []);
+            hostServidor = oComponent.getManifestEntry('sys.pos')['servidorCentral'];
+
             $.ajax({
                 method: 'GET',
-                url: 'https://hanatest02:4300/POS/xsjs/Datos/BusquedaClienteList.xsjs',
+                url: hostServidor + '/POS/xsjs/Datos/BusquedaClienteList.xsjs',
                 data: {
                     'sNombreCliente': sNombre,
                     'sApellidoPaternoCliente': sAPaterno,

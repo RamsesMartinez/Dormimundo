@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" href="icon.png">
+    <link rel="icon" href="webapp/icon.png">
     <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
 
     <title>dormimundo</title>
 
-    <!-- Validación incial para el login o alguna vista -->
+    <!-- Validación inicial para el login o alguna vista -->
     <?php
     session_name("loginUsuario");
     session_start();
@@ -42,14 +42,14 @@
             // Si hay sesión activa
             if (document.location.hash === '' || document.location.hash.indexOf('Login') !== -1) {
                 // Redirige al home
-                location.href = 'http://localhost/webapp/#/Dormimundo/Home/';
+                location.href = 'http://localhost/#/Dormimundo/Home/';
             }
 
         } else { // Si NO hay sesión activa)
             // Si NO está en el login
             if (!(document.location.hash === '' || document.location.hash.indexOf('Login') !== -1)) {
                 // Redirige al login
-                location.href = 'http://localhost/webapp/';
+                location.href = 'http://localhost/';
             }
         }
     </script>
@@ -62,7 +62,7 @@
             data-sap-ui-xx-bindingSyntax="complex"
             data-sap-ui-compatVersion="edge"
             data-sap-ui-preload="async"
-            data-sap-ui-resourceroots='{"com.sap.build.standard.dormimundo":"./","sap.iot.dor":"/build/uilibraries/BRIDGE-CUSTOM-1.0.0/sap/iot/dor"}'>
+            data-sap-ui-resourceroots='{"com.sap.build.standard.dormimundo":"../webapp","sap.iot.dor":"/build/uilibraries/BRIDGE-CUSTOM-1.0.0/sap/iot/dor"}'>
     </script>
 
     <script>
@@ -99,14 +99,14 @@
                 // Si hay sesión activa
                 if (document.location.hash === '' || document.location.hash.indexOf('Login') !== -1) {
                     // Redirige al home
-                    location.href = 'http://localhost/webapp/#/Dormimundo/Home/';
+                    location.href = 'http://localhost/#/Dormimundo/Home/';
                 }
 
             } else { // Si NO hay sesión activa)
                 // Si NO está en el login
                 if (!(document.location.hash === '' || document.location.hash.indexOf('Login') !== -1)) {
                     // Redirige al login
-                    location.href = 'http://localhost/webapp/';
+                    location.href = 'http://localhost/';
                 }
             }
         });
@@ -148,7 +148,7 @@
                 method: 'POST',
                 type: 'json',
                 data: {
-                    'type': 'update_session',
+                    'type': 'update_session'
                 },
                 success: function (result) {
                     var jsonResult = JSON.parse(result);

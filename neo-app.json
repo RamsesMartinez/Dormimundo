@@ -1,5 +1,5 @@
 {
-	"welcomeFile": "webapp/test/testFLPService.html",
+	"welcomeFile": "index.php",
 	"routes": [
 		{
 			"path": "/resources",
@@ -8,7 +8,7 @@
 				"name": "sapui5",
 				"version": "1.48.6",
 				"preferLocal": true,
-				"entryPath": "/resources"
+				"entryPath": "/openui5/resources"
 			},
 			"description": "SAPUI5 Resources"
 		},
@@ -18,7 +18,7 @@
 				"type": "service",
 				"version": "1.48.6",
 				"name": "sapui5",
-				"entryPath": "/test-resources"
+				"entryPath": "/openui5/test-resources"
 			},
 			"description": "SAPUI5 Test Resources"
 		}
