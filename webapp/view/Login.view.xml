@@ -13,7 +13,7 @@
                     <Image src="/webapp/resources/logo_small.png" height="185px" width="205px" densityAware="false"/>
                     <Input id="txtUserCode" value="{/userCode}" placeholder="{i18n>codigoEmpleadoLogin}" type="Number" showValueHelp="false" enabled="true" visible="true" width="15rem" valueHelpOnly="false" maxLength="0" change="_onChangeUserCode" liveChange="_onLiveChangeUserCode" />
                     <Input id="txtUserName" value="{/userName}" placeholder="" type="Text" showValueHelp="false" enabled="false" visible="true" width="15rem" valueHelpOnly="false" maxLength="0"/>
-                    <Input id="txtUserPassword" value="{/userPassword}" placeholder="{i18n>contraseñaEmpleadoLogin}" type="Password" showValueHelp="false" enabled="true" visible="true" width="15rem" valueHelpOnly="false" maxLength="0" liveChange="_onLiveChangePassword" change="_onButtonLogic" />
+                    <Input id="txtUserPassword" value="{/userPassword}" placeholder="{i18n>contraseñaEmpleadoLogin}" type="Password" showValueHelp="false" enabled="true" visible="true" width="15rem" valueHelpOnly="false" maxLength="0" liveChange="_onLiveChangePassword" change="_onButtonLogin" />
                     <Button id="btnLogin" text="{i18n>btnLogin}" type="Emphasized" iconFirst="true" width="15rem" enabled="false" visible="true" iconDensityAware="false" press="_onButtonLogin"/>
                 </items>
                 <layoutData/>

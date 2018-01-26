@@ -1,8 +1,42 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.Dialog_BuscarCliente" xmlns="sap.m">
-    <Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Buscar Cliente" type="Standard" verticalScrolling="true">
+<mvc:View
+        xmlns:mvc="sap.ui.core.mvc"
+        controllerName="com.sap.build.standard.dormimundo.controller.Dialog_BuscarCliente"
+        xmlns:l="sap.ui.layout"
+        xmlns="sap.m">
+    <Dialog
+            contentWidth="725px"
+            resizable="true"
+            horizontalScrolling="true"
+            showHeader="true"
+            state="None"
+            draggable="true"
+            stretch="false"
+            title="Buscar Cliente"
+            type="Standard"
+            verticalScrolling="true">
+        <l:HorizontalLayout>
+            <SearchField id="searchClienteAPaterno" placeholder="Apellido Paterno" showSearchButton="false" visible="true" width="98%" search="_onButtonSearchClientes"/>
+            <SearchField id="searchClienteAMaterno" placeholder="Apellido Materno" showSearchButton="false" visible="true" width="98%" search="_onButtonSearchClientes"/>
+            <SearchField id="searchClienteNombre" placeholder="Nombre" showSearchButton="false" visible="true" width="98%" search="_onButtonSearchClientes"/>
+            <Button type="Transparent" icon="sap-icon://search" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonSearchClientes"/>
+        </l:HorizontalLayout>
         <content>
-            <SearchField placeholder="Buscar cliente" showSearchButton="true" visible="true" width="auto"/>
-            <Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+            <Table
+                id="tableCustomers"
+                items="{
+                    path : '/ClientesLista',
+                    sorter : {
+                        path : 'Name',
+                        descending : false
+                    }
+                }"
+                width="auto"
+                noDataText="Sin datos"
+                mode="SingleSelectMaster"
+                showSeparators="All"
+                growing="true"
+                growingThreshold="20"
+                growingScrollToLoad="true">
                 <infoToolbar>
                     <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
                         <content>
@@ -11,56 +45,54 @@
                     </Toolbar>
                 </infoToolbar>
                 <headerToolbar/>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{U_SYS_MEMB}"/>
+                        <Text text="{U_SYS_APPA}"/>
+                        <Text text="{U_SYS_APMA}"/>
+                        <Text text="{U_SYS_NOMB}"/>
+                        <Text text="{U_SYS_CALL}"/>
+                    </cells>
+                </ColumnListItem>
                 <columns>
                     <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
                         <header>
-                            <Text text="Product" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Membresía" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Appelido Paterno" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
                         </header>
                         <footer/>
                     </Column>
                     <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
                         <header>
-                            <Text text="Supplier" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <Text text="Apellido Materno" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
                         </header>
                         <footer/>
                     </Column>
                     <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
                         <header>
-                            <Text text="Price" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            <title text="Nombre" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Direccion" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
                         </header>
                         <footer/>
                     </Column>
                 </columns>
-                <items>
-                    <ColumnListItem type="Active">
-                        <cells>
-                            <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
-                            <Text text="Supplier Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-                            <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
-                        </cells>
-                    </ColumnListItem>
-                    <ColumnListItem type="Active">
-                        <cells>
-                            <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
-                            <Text text="Supplier Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-                            <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
-                        </cells>
-                    </ColumnListItem>
-                    <ColumnListItem type="Active">
-                        <cells>
-                            <ObjectIdentifier title="Product Name" text="Product ID" titleActive="false" visible="true"/>
-                            <Text text="Supplier Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-                            <ObjectNumber number="150.00" unit="USD" emphasized="true" state="None"/>
-                        </cells>
-                    </ColumnListItem>
-                </items>
             </Table>
         </content>
         <beginButton/>
         <buttons>
             <Button text="Agregar Cliente" type="Transparent" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress3"/>
-            <Button text="Cancel" type="Reject" iconFirst="true" width="135px" enabled="true" visible="true" iconDensityAware="false"/>
-            <Button text="Aceptar" type="Accept" iconFirst="true" width="135px" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress34"/>
+            <Button text="Aceptar" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonAceptar"/>
+            <Button text="Cancel" type="Transparent" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onExit"/>
         </buttons>
         <customHeader/>
         <endButton/>
