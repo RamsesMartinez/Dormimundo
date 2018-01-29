@@ -2,19 +2,30 @@
 /**
  * Clase encargada de gestionar las conexiones a la base de datos
  */
-Class DB {
-    private $servidor = 'localhost';
-    private $usuario = 'root';
-    private $password = 'Passw0rd';
-    private $base_datos = 'POS';
+
+require_once("SYS_PDBConfig.class.php");
+
+
+Class SYS_PDB {
+    private $servidor;
+    private $usuario;
+    private $password;
+    private $base_datos;
     private $link;
     private $stmt;
     private $array;
     static $_instance;
+
     /**
      * La función construct es privada para evitar que el objeto pueda ser creado mediante new
      */
     private function __construct(){
+        $dbConfig = new SYS_PDBConfig();
+        $this->servidor = $dbConfig->getServerName();
+        $this->usuario = $dbConfig->getUserName();
+        $this->password = $dbConfig->getPassCode();
+        $this->base_datos =  $dbConfig->getDbName();
+
         $this->conectar();
     }
     /**
@@ -37,8 +48,7 @@ Class DB {
      */
     private function conectar(){
         $this->link=mysqli_connect($this->servidor, $this->usuario, $this->password, $this->base_datos);
-        //mysqli_select_db($this->base_datos,$this->link);
-        //@mysql_query("SET NAMES 'utf8'");
+
     }
     /**
      * Método para ejecutar una sentencia sql
@@ -63,5 +73,20 @@ Class DB {
             $this->array = mysqli_fetch_array($stmt);
         }
         return $this->array;
+    }
+
+    /**
+     * Métpdp encargado de cerrar la conexión
+     */
+    public function close_connection()
+    {
+        if (isset($this->connection)) {
+            $this->connection->close();
+            unset($this->connection);
+        }
+    }
+
+    public function get_last_error() {
+        return $this->link->error;
     }
 }

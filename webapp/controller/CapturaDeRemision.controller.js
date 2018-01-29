@@ -7,7 +7,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
     return BaseController.extend("com.sap.build.standard.dormimundo.controller.CapturaDeRemision", {
         handleRouteMatched: function (oEvent) {
-            console.log("cliente actual: ");
+
             console.log(sap.ui.getCore().getModel('ClienteActual'));
             var oParams = {};
 

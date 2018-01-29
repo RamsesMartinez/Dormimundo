@@ -40,7 +40,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
             $.ajax({
                 method: 'POST',
-                url: '/connect/session.php',
+                url: '/connect/SYS_PSesion.php',
                 data: {
                     'type': 'userCode',
                     'value': sUserCode
@@ -50,7 +50,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
                 // On receive of reply
                 success: function(result) {
-                    var employeeObject = JSON.parse(result);
+                    var employeeObject = result;
                     if (employeeObject.code !== 0) {
                         console.log("sin resultados");
                         oView.getModel().setProperty("/userName", "Nombre del agente");
@@ -100,7 +100,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
             // Valida si la contraseña y usuario son correctos
             $.ajax({
                 method: 'POST',
-                url: '/connect/session.php',
+                url: '/connect/SYS_PSesion.php',
                 type: 'json',
                 async: false,
                 data: {
@@ -110,8 +110,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                     'sUserPassword': sUserPassword
                 },
                 success: function (result) {
-                    var jsonResult = JSON.parse(result);
-                    if (jsonResult.session === true) {
+                    if (result.session === true) {
                         oModel = {
                             'sAgenteCode': sUserName,
                             'sAgenteName': sUserName

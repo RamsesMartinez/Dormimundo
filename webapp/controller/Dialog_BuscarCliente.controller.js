@@ -18,11 +18,11 @@ sap.ui.define([
         },
 
         _onButtonSearchClientes: function (oEvent) {
-            var hostServidor;
-            var ClientesLista;
             var oView = this.getView();
             var oModel = oView.getModel();
             var oComponent = this.getOwnerComponent();
+            var hostServidorCentral;
+            var ClientesLista;
 
             var oTxtNombre = oView.byId('searchClienteNombre').mProperties;
             var oTxtAPaterno = oView.byId('searchClienteAPaterno').mProperties;
@@ -39,11 +39,11 @@ sap.ui.define([
 
             // Limpia el modelo de Clientes actual
             oModel.setProperty('/ClientesLista', []);
-            hostServidor = oComponent.getManifestEntry('sys.pos')['servidorCentral'];
+            hostServidorCentral = oComponent.getManifestEntry('sys.pos')['servidorCentral'];
 
             $.ajax({
                 method: 'GET',
-                url: hostServidor + '/POS/xsjs/Datos/BusquedaClienteList.xsjs',
+                url: hostServidorCentral + '/POS/xsjs/Datos/BusquedaClienteList.xsjs',
                 data: {
                     'sNombreCliente': sNombre,
                     'sApellidoPaternoCliente': sAPaterno,

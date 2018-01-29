@@ -15,7 +15,7 @@
     $session_value = (isset($_SESSION['username'])) ? $_SESSION['username']: '';
 
     $TIEMPO_MAX_SESSION = 3600;  // Tiempo de duración máxima de la sesión (segundos)
-    $TIEMPO_VALIDAR_SESSION = 60;  // Tiempo para verificar la sesión (segundos)
+    $TIEMPO_VALIDAR_SESSION = 3;  // Tiempo para verificar la sesión (segundos)
 
     if (isset($_SESSION['autentificado'])) {
         date_default_timezone_set('America/Mexico_City');
@@ -119,7 +119,7 @@
             if (!(document.location.hash === '' || document.location.hash.indexOf('Login') !== -1)) {
 
                 $.ajax({
-                    url: '/connect/session.php',
+                    url: '/connect/SYS_PSesion.php',
                     method: 'POST',
                     type: 'json',
                     data: {
@@ -127,15 +127,14 @@
                         'tiempo_max_session': tiempoMaxSession
                     },
                     success: function (result) {
-                        var jsonResult = JSON.parse(result);
-
-                        if (jsonResult.session === false) { //Sesión caducada
+                        if (result.session === false) { //Sesión caducada
                             clearInterval(refreshIntervalId);
                             location.reload();
                         }
 
                     },
                     error: function (err) {
+                        "error: ".log
                         console.log(err);
                     }
                 });
@@ -144,14 +143,14 @@
 
         function  actualizarSesion() {
             $.ajax({
-                url: '/connect/session.php',
+                url: '/connect/SYS_PSesion.php',
                 method: 'POST',
                 type: 'json',
                 data: {
                     'type': 'update_session'
                 },
                 success: function (result) {
-                    var jsonResult = JSON.parse(result);
+                     // console.log(result);
                 },
                 error: function (err) {
                     console.log(err);

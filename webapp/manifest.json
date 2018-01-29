@@ -530,7 +530,7 @@
   },
   "sys.pos": {
     "_version": "1.0.0",
-    "sucursal": "001",
+    "codigoSucursal": "001",
     "servidorCentral": "https://hanatest02:4300",
     "urlLocal": "http://localhost"
   }

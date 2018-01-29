@@ -110,7 +110,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
                 $.ajax({
                     method: 'POST',
-                    url: '/connect/session.php',
+                    url: '/connect/SYS_PSesion.php',
                     type: 'json',
                     async: false,
                     data: {

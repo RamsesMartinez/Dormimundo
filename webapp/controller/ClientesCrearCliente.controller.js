@@ -7,8 +7,56 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
     return BaseController.extend("com.sap.build.standard.dormimundo.controller.ClientesCrearCliente", {
         handleRouteMatched: function (oEvent) {
-
             var oParams = {};
+            var oView = this.getView();
+            var oComponent = this.getOwnerComponent();
+            var sCodigoSucursal = oComponent.getManifestEntry('sys.pos')['codigoSucursal'];
+            var oModel,
+                oCliente,
+                sMembresiaCliente;
+
+            // Genera el código del nuevo cliente
+            $.ajax({
+                url: '/connect/SYS_PClientes.php',
+                method: 'POST',
+                type: 'json',
+                async: false,
+                data: {
+                    'type': 'get_membresia_cliente',
+                    'codigo_sucursal': sCodigoSucursal
+                },
+                success: function (result) {
+                    console.log(result);
+                    if ($.isEmptyObject(result)) {
+                        alert("No se ha podido generar la membresía");
+                        return;
+                    }
+                    var LONG_COD_CLIENTE = 6;
+                    var sNuevoCodigoCliente = result['U_SYS_FOLI'].toString();
+
+                    for (var i = 0; i < LONG_COD_CLIENTE; i++) {
+                        if (sNuevoCodigoCliente.length < LONG_COD_CLIENTE) {
+                            sNuevoCodigoCliente = '0' + sNuevoCodigoCliente;
+                        }
+                    }
+                    sMembresiaCliente = sCodigoSucursal + sNuevoCodigoCliente;
+
+                },
+                error: function (error) {
+                    console.log("Error: ");
+                    console.log(error);
+                }
+            });
+
+            oCliente = {
+                'membresia': sMembresiaCliente
+            };
+
+            // Convierte el objeto oCliente en Modelo
+            oModel =  new sap.ui.model.json.JSONModel(oCliente);
+
+            var miForm = oView.byId('crearCliente');
+            miForm.setModel(oModel, "Cliente");
 
             if (oEvent.mParameters.data.context) {
                 this.sContext = oEvent.mParameters.data.context;
@@ -87,10 +135,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
             }
         },
         onInit: function () {
+            var oView = this.getView();
             this.mBindingOptions = {};
             this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             this.oRouter.getTarget("ClientesCrearCliente").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
-            var oView = this.getView();
+
             oView.addEventDelegate({
                 onBeforeShow: function () {
                     if (sap.ui.Device.system.phone) {

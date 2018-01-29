@@ -4,22 +4,18 @@
  *
  * Author: Ramses Martínez
  * Date: 22/01/2018
- * Time: 10:35 AM
  */
 
-// Evita que se muestren logs
-//error_reporting(0);
+header('Content-type: application/json');
 
-require_once("DB.class.php");
-$conn = Db::getInstance();
+require_once("SYS_PDB.class.php");
+$conn = SYS_PDB::getInstance();
+
 date_default_timezone_set('America/Mexico_City');
 
 // Select the Request Method
 $requestMethod = $_SERVER['REQUEST_METHOD'];
-if ($requestMethod == 'GET') {
-    echo $requestMethod;
-
-} elseif ($requestMethod == 'POST') {
+if ($requestMethod == 'POST') {
     $type = $_POST['type'];
 
     switch ($type) {
@@ -82,12 +78,14 @@ if ($requestMethod == 'GET') {
             $tiempoMaxSession = $_POST['tiempo_max_session'];
             session_name("loginUsuario");
             session_start();
+
             if (esSesionActiva($tiempoMaxSession)) {
                 echo json_encode(array("session"=>true),0);
             } else {
                 echo json_encode(array("session"=>false),1);
             }
             break;
+
         case 'update_session':
             session_name("loginUsuario");
             session_start();
@@ -95,6 +93,7 @@ if ($requestMethod == 'GET') {
             $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
             echo json_encode(array("session"=>true),0);
             break;
+
         case 'close_session':
             session_name("loginUsuario");
             session_start();
@@ -108,12 +107,12 @@ if ($requestMethod == 'GET') {
 /**
  * Función que almacena en la BDD el último inicio de sesión del usuario
  *
- * @param DB $conn
+ * @param SYS_PDB $conn
  * @param string $sUserCode cadena que contiene el código del usuario
  * @param string $sUltimoAcceso cadena que contiene la fecha del ultimo acceso del usuario
  * @return mysqli_result
  */
-function registrarUltimoAcceso(DB &$conn, string $sUserCode, string $sUltimoAcceso) {
+function registrarUltimoAcceso(SYS_PDB &$conn, string $sUserCode, string $sUltimoAcceso) {
     $sql =  "INSERT INTO `@sys_psesiones` SET U_SYS_AGEV = '$sUserCode', U_SYS_UCON = '$sUltimoAcceso' " .
             "ON DUPLICATE KEY UPDATE U_SYS_UCON = '$sUltimoAcceso'";
 
@@ -122,12 +121,12 @@ function registrarUltimoAcceso(DB &$conn, string $sUserCode, string $sUltimoAcce
 
 /**
  * Función que permite validar si el login del usuario es exitosa o no
- * @param DB $conn
+ * @param SYS_PDB $conn
  * @param string $sUserCode - Codigo del usuario
  * @param string $sUserPassword - Contraseña del usuario
  * @return bool
  */
-function iniciarSesion(DB &$conn, string $sUserCode, string $sUserPassword) {
+function iniciarSesion(SYS_PDB &$conn, string $sUserCode, string $sUserPassword) {
     // La contraseña no viene hasheada... por lo que se realiza la consulta directamente
     $sql = "SELECT empID, U_SYS_PASS FROM ohem WHERE empID=$sUserCode AND U_SYS_PASS=$sUserPassword";
     $res = $conn->ejecutar($sql);
@@ -137,11 +136,11 @@ function iniciarSesion(DB &$conn, string $sUserCode, string $sUserPassword) {
 /**
  * Función que retorna un array con los datos del empleado
  *
- * @param DB $conn 
+ * @param SYS_PDB $conn
  * @param string $empId  - cadena que contiene el código del vendedor a buscar
  * @return array $result - en caso de que el mysqli_result esté vacío, el array retornado estará vacío.
  */
-function getNombreEmpleado(DB &$conn, string $empId) {
+function getNombreEmpleado(SYS_PDB &$conn, string $empId) {
     $sql = "SELECT empID, firstName, lastName FROM ohem WHERE empID = $empId";
     $res = $conn->ejecutar($sql);
 
@@ -159,11 +158,11 @@ function getNombreEmpleado(DB &$conn, string $empId) {
 
 /**
  * Función que eretorna el password  y usuario para inicio de sesión
- * @param DB $conn
+ * @param SYS_PDB $conn
  * @param mysqli_result $sql
  * @return array
  */
-function checkPassword(DB &$conn, mysqli_result $sql) {
+function checkPassword(SYS_PDB &$conn, mysqli_result $sql) {
     $result = array();
 
     while ($row = $conn->obtener_fila($sql, 0)) {
