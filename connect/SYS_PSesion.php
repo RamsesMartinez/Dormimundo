@@ -56,6 +56,7 @@ if ($requestMethod == 'POST') {
                 $_SESSION["autentificado"] = "Y";
 
                 $_SESSION['username'] = $sUserName;
+                $_SESSION['userCode'] = $sUserCode;
 
                 // Define la fecha y hora de inicio de sesión en formato aaaa-mm-dd hh:mm:ss
                 $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");

@@ -195,7 +195,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                 }
             },
 
-            _onNavigationListItemFirstLevelSelect: function (oEvent) {
+            _onItemRemisiones: function (oEvent) {
 
                 var sDialogName = "Dialog_BuscarCliente";
                 this.mDialogs = this.mDialogs || {};
@@ -204,6 +204,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                 var oBindingContext = oSource.getBindingContext();
                 var sPath = (oBindingContext) ? oBindingContext.getPath() : null;
                 var oView;
+
                 if (!oDialog) {
                     this.getOwnerComponent().runAsOwner(function () {
                         oView = sap.ui.xmlview({viewName: "com.sap.build.standard.dormimundo.view." + sDialogName});

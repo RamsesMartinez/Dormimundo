@@ -1,21 +1,38 @@
 sap.ui.define(["sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
     "./utilities",
-    "sap/ui/core/routing/History"
-], function(BaseController, MessageBox, Utilities, History) {
+    "sap/ui/core/routing/History",
+    'sap/ui/model/json/JSONModel'
+], function(BaseController, MessageBox, Utilities, History, JSONModel) {
     "use strict";
 
     return BaseController.extend("com.sap.build.standard.dormimundo.controller.CapturaDeRemision", {
         handleRouteMatched: function (oEvent) {
-            console.log("Cliente actual");
-            console.log(sap.ui.getCore().getModel('ClienteActual'));
             var oParams = {};
+            var oView = this.getView();
+            var oModelCliente = new JSONModel(sap.ui.getCore().getModel('/Cliente'));
+            var oModelAgente = new JSONModel(sap.ui.getCore().getModel('/Agente'));
+            var sFecha = oView.byId('fecha');
 
-            if (sap.ui.Device.system.desktop) {
-                //sap.ui.getCore().byId("App").setMode(sap.m.SplitAppMode.StretchCompressMode);
-            } else {
-                //sap.ui.getCore().byId("App").setMode(sap.m.SplitAppMode.ShowHideMode);
+            // Inserta la fecha formateada
+            var fecha = new Date(),
+                dd = fecha.getDate(),
+                mm = fecha.getMonth() + 1,
+                yyyy = fecha.getFullYear();
+
+            if (dd < 10){
+                dd = '0' + dd;
             }
+            if (mm < 10){
+                mm= '0' + mm;
+            }
+            fecha = yyyy + '/' + mm + '/' + dd;
+
+            sFecha.setValue(fecha);
+
+            oView.setModel(oModelAgente, "/Agente");
+            oView.setModel(oModelCliente, "/Cliente");
+
             if (oEvent.mParameters.data.context) {
                 this.sContext = oEvent.mParameters.data.context;
                 var oPath;
@@ -24,31 +41,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                     this.getView().bindObject(oPath);
                 }
             }
-
-
-        },
-        _onPageNavButtonPress: function () {
-            return new Promise(function (fnResolve) {
-                var aChangedEntitiesPath, oChangedBindingContext;
-                var oModel = this.oModel;
-                if (oModel && oModel.hasPendingChanges()) {
-                    aChangedEntitiesPath = Object.keys(oModel.mChangedEntities);
-
-                    for (var j = 0; j < aChangedEntitiesPath.length; j++) {
-                        oChangedBindingContext = oModel.getContext("/" + aChangedEntitiesPath[j]);
-                        if (oChangedBindingContext && oChangedBindingContext.bCreated) {
-                            oModel.deleteCreatedEntry(oChangedBindingContext);
-                        }
-                    }
-                    oModel.resetChanges();
-                }
-                fnResolve();
-            }.bind(this)).catch(function (err) { if (err !== undefined) { MessageBox.error(err.message); }});
-
-
         },
         _onButtonPress3: function (oEvent) {
-
             var sDialogName = "Dialog1";
             this.mDialogs = this.mDialogs || {};
             var oDialog = this.mDialogs[sDialogName];
@@ -217,8 +211,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
             return new Promise(function(fnResolve) {
 
-                this.doNavigate("CapturaDeRemisionDatosDeCliente", oBindingContext, fnResolve, ""
-                );
+                this.doNavigate("CapturaDeRemisionDatosDeCliente", oBindingContext, fnResolve, "");
             }.bind(this)).catch(function (err) { if (err !== undefined) { MessageBox.error(err.message); }});
 
         },
@@ -278,11 +271,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
             }
         },
         onInit: function () {
-
             this.mBindingOptions = {};
             this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             this.oRouter.getTarget("CapturaDeRemision").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
             var oView = this.getView();
+
             oView.addEventDelegate({
                 onBeforeShow: function () {
                     if (sap.ui.Device.system.phone) {
@@ -296,7 +289,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                     }
                 }.bind(this)
             });
-
             this.oModel = this.getOwnerComponent().getModel();
 
         }

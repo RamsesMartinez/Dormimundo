@@ -19,7 +19,7 @@ sap.ui.define([
 
         _onButtonSearchClientes: function (oEvent) {
             var oView = this.getView();
-            var oModel = oView.getModel();
+            var oVModelClientesLista = oView.getModel();
             var oComponent = this.getOwnerComponent();
             var hostServidorCentral;
             var ClientesLista;
@@ -38,7 +38,7 @@ sap.ui.define([
             }
 
             // Limpia el modelo de Clientes actual
-            oModel.setProperty('/ClientesLista', []);
+            oVModelClientesLista.setProperty('/ClientesLista', []);
             hostServidorCentral = oComponent.getManifestEntry('sys.pos')['servidorCentral'];
 
             $.ajax({
@@ -53,7 +53,7 @@ sap.ui.define([
                 async: false,
                 success: function (result) {
                     ClientesLista = result.ClientesLista;
-                    oModel.setProperty('/ClientesLista', ClientesLista);
+                    oVModelClientesLista.setProperty('/ClientesLista', ClientesLista);
                 },
                 error: function (error) {
                     console.log(error);
@@ -66,17 +66,15 @@ sap.ui.define([
             var oBindingContext = oEvent.getSource().getBindingContext();
 
             return new Promise(function(fnResolve) {
-
-                this.doNavigate("ClientesCrearCliente", oBindingContext, fnResolve, ""
-                );
+                this.doNavigate("ClientesCrearCliente", oBindingContext, fnResolve, "");
             }.bind(this)).catch(function (err) { if (err !== undefined) { MessageBox.error(err.message); }});
         },
 
         doNavigate: function (sRouteName, oBindingContext, fnPromiseResolve, sViaRelation) {
             var sPath = (oBindingContext) ? oBindingContext.getPath() : null;
             var oModel = (oBindingContext) ? oBindingContext.getModel() : null;
-
             var sEntityNameSet;
+
             if (sPath !== null && sPath !== "") {
                 if (sPath.substring(0, 1) === "/") {
                     sPath = sPath.substring(1);
@@ -129,11 +127,14 @@ sap.ui.define([
 
         _onButtonAceptar: function (oEvent) {
             var oView = this.getView();
-            var oModel;
+            var oGModelClienteActual;
             var oBindingContext = oEvent.getSource().getBindingContext();
             var oSelectedItems,
                 oSelectedItem,
-                sMembresia;
+                sMembresia,
+                sNombre,
+                sApellidoPaterno,
+                sApellidoMaterno;
 
             oSelectedItems  = oView.byId('tableCustomers').getSelectedItems();
 
@@ -144,12 +145,19 @@ sap.ui.define([
 
             oSelectedItem = oSelectedItems[0].getCells();
             sMembresia = oSelectedItem[0].getText();
+            sApellidoPaterno = oSelectedItem[1].getText();
+            sApellidoMaterno = oSelectedItem[2].getText();
+            sNombre = oSelectedItem[3].getText();
 
-            oModel = {
-                'ClienteActual': sMembresia
+            oGModelClienteActual = {
+                'membresia': sMembresia,
+                'nombre': sNombre,
+                'apellidoPaterno': sApellidoPaterno,
+                'apellidoMaterno': sApellidoMaterno
             };
 
-            sap.ui.getCore().setModel(oModel, 'ClienteActual');
+            // Crea el modelo para el cliente de forma global, para enviarlo a otras views
+            sap.ui.getCore().setModel(oGModelClienteActual, '/Cliente');
 
             return new Promise(function(fnResolve) {
                 this.doNavigate("CapturaDeRemision", oBindingContext, fnResolve, "");
@@ -160,13 +168,13 @@ sap.ui.define([
         onInit: function () {
             this.mBindingOptions = {};
             this._oDialog = this.getView().getContent()[0];
-            var oModel = new sap.ui.model.json.JSONModel();
+            var oVModelClientesLista = new sap.ui.model.json.JSONModel();
 
-            oModel.setData({
+            oVModelClientesLista.setData({
                 "ClientesLista": []
             });
 
-            this.getView().setModel(oModel);
+            this.getView().setModel(oVModelClientesLista);
         },
 
         onExit: function () {

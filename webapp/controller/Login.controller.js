@@ -1,9 +1,10 @@
 
 sap.ui.define(["sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
+    "sap/m/MessageToast",
     "./utilities",
     "sap/ui/core/routing/History"
-], function(BaseController, MessageBox, Utilities, History) {
+], function(BaseController, MessageBox, MessageToast, Utilities, History) {
     "use strict";
 
     return BaseController.extend("com.sap.build.standard.dormimundo.controller.Login", {
@@ -52,7 +53,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                 success: function(result) {
                     var employeeObject = result;
                     if (employeeObject.code !== 0) {
-                        console.log("sin resultados");
+                        MessageToast.show("Usuario no encontrado");
                         oView.getModel().setProperty("/userName", "Nombre del agente");
                         return;
                     }
@@ -95,7 +96,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
             var sUserCode = oView.byId('txtUserCode').mProperties.value;
             var sUserPassword = oView.byId('txtUserPassword').mProperties.value;
             var sUserName = oView.byId('txtUserName').mProperties.value;
-            var oModel;
+            var oGModelAgente;
             // Valida si la contraseña y usuario son correctos
             $.ajax({
                 method: 'POST',
@@ -110,15 +111,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                 },
                 success: function (result) {
                     if (result.session === true) {
-                        oModel = {
+                        oGModelAgente = {
                             'sAgenteCode': sUserName,
                             'sAgenteName': sUserName
                         };
-                        sap.ui.getCore().setModel(oModel, '/AgenteActivo');
+                        sap.ui.getCore().setModel(oGModelAgente, '/Agente');
                         location.reload();
                     } else {
-                        console.log(result);
-                        alert("Revisa tus credenciales de acceso");
+                        MessageToast.show("Revisa tus credenciales de acceso");
                     }
                 },
                 error: function (error) {

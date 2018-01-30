@@ -1,5 +1,5 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.CapturaDePedidos" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:unified="sap.ui.unified">
-    <Page showHeader="true" title="Captura de pedido" showFooter="true" showNavButton="false" navButtonPress="_onPageNavButtonPress2">
+    <Page showHeader="true" title="Captura de pedido" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress2">
         <content>
             <layout:BlockLayout background="Dashboard">
                 <layout:content>

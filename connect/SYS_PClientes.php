@@ -1,8 +1,9 @@
 <?php
 /**
  * Archivo que permite obtener datos realacionados de los clientes
- * Created by Ramsés Martínez.
- * Fecha de creación: 26/01/2018
+ *
+ * @author  Ramsés Martínez.
+ * @date 22/01/2018
  */
 
 require_once("SYS_PDB.class.php");
@@ -35,17 +36,17 @@ if ($requestMethod == 'POST') {
 
         case 'crear_cliente':
             // Campos obligatorios y opcionales
-            $nuevo_cliente = array(
+            $nuevoCliente = array(
                 'code' => $_POST['sCode'], 
                 'membresia' => $_POST['sMembresia'],
                 'sucursal' => $_POST['sSucursal'],
-                'fecha' => '20180101',
+                'fecha' => $_POST['sFecha'],
                 'nombre' => $_POST['sNombre'],
                 'apellidoMaterno' => $_POST['sApellidoMaterno'],
                 'apellidoPaterno' => $_POST['sApellidoPaterno'],
                 'calle' => $_POST['sCalle'],
                 'numeroExterior' => $_POST['sNumeroExterior'],
-                'numeroInterior' => empty($_POST['sNumeroInterior'])  ? '' : $_POST['sNumeroInterior'],
+                'numeroInterior' => empty($_POST['sNumeroInterior'])  ? 'NULL' : $_POST['sNumeroInterior'],
                 'colonia' => $_POST['sColonia'],
                 'delegacion' => $_POST['sDelegacion'],
                 'estado' => $_POST['sEstado'],
@@ -53,14 +54,17 @@ if ($requestMethod == 'POST') {
                 'codigoPostal' => $_POST['sCodigoPostal'],
                 'pais' => $_POST['sPais'],
                 'telefono1' => $_POST['sTelefono1'],
-                'telefono2' => empty($_POST['sTelefono2']) ? '' : $_POST['sTelefono2'],
-                'email' => empty($_POST['sEmail'])  ? '' : $_POST['sEmail'],
-                'referencias' => empty($_POST['sReferencias'])  ? '' : $_POST['sReferencias'],
+                'telefono2' => empty($_POST['sTelefono2']) ? 'NULL' : $_POST['sTelefono2'],
+                'email' => empty($_POST['sEmail'])  ? NULL : $_POST['sEmail'],
+                'referencias' => empty($_POST['sReferencias'])  ? 'NULL' : $_POST['sReferencias'],
                 'sincronizado' => 'N'
             );
 
-            if (crearCliente($conn, $nuevo_cliente)) {
+            $json_result = crearCliente($conn, $nuevoCliente);
+            if ($json_result['Code'] === 0) {
                 echo json_encode(array("result"=>"Success", "Code"=>0));
+            } else {
+                echo json_encode(array($json_result, "Code"=>1));
             }
 
             break;
@@ -89,7 +93,7 @@ function obtenerConsecutivoMembresiaCliente(SYS_PDB &$conn, string $sCodigoSucur
 
         if (empty($result)) {
             $result = array("Code" => $sCodigoSucursal,
-                "U_SYS_FOLI" => 1 + 1);
+                "U_SYS_FOLI" => 1);
         }
 
     } catch (Exception $e) {
@@ -104,28 +108,62 @@ function obtenerConsecutivoMembresiaCliente(SYS_PDB &$conn, string $sCodigoSucur
 /**
  * @param SYS_PDB $conn
  * @param array $nuevoCliente
- * @return bool
+ * @return array
  */
-function crearCliente(SYS_PDB &$conn, $nuevoCliente) {
-    $sql =  "INSERT INTO pos.`@sys_pclientes`(Code, Name, U_SYS_MEMB, U_SYS_NOMB, U_SYS_APPA, U_SYS_APMA, U_SYS_CALL, U_SYS_NUEX, " .
-            "   U_SYS_NUIN, U_SYS_COLO, U_SYS_DEMU, U_SYS_ESTA, U_SYS_CIUD, U_SYS_COPO, U_SYS_PAIS, U_SYS_TEL1, U_SYS_TEL2, " .
-            "   U_SYS_MAIL, U_SYS_REFE, U_SYS_SUCU, U_SYS_FECH, U_SYS_SINC)" .
-            "VALUES ('$nuevoCliente[code]', '$nuevoCliente[code]', '$nuevoCliente[membresia]', '$nuevoCliente[nombre]', '$nuevoCliente[apellidoPaterno]', " .
-            "   '$nuevoCliente[apellidoMaterno]', '$nuevoCliente[calle]', '$nuevoCliente[numeroExterior]', '$nuevoCliente[numeroInterior]', " .
-            "   '$nuevoCliente[numeroExterior]', '$nuevoCliente[colonia]', '$nuevoCliente[delegacion]', '$nuevoCliente[estado]', '$nuevoCliente[ciudad]', " .
-            "   '$nuevoCliente[codigoPostal]', '$nuevoCliente[pais]', '$nuevoCliente[telefono1]', '$nuevoCliente[telefono2]'" .
-            "   '$nuevoCliente[email]', '$nuevoCliente[referencias]', '$nuevoCliente[sucursal]', '$nuevoCliente[fecha]', '$nuevoCliente[sincronizado]')";
-
-
+function crearCliente(SYS_PDB &$conn, &$nuevoCliente) {
     try {
-        if ( $conn->ejecutar($sql) ) {
-         return true;
+        $Code = $nuevoCliente["code"];
+        $Name = $nuevoCliente["code"];
+        $U_SYS_MEMB = $nuevoCliente["membresia"];
+        $U_SYS_NOMB = $nuevoCliente["nombre"];
+        $U_SYS_APPA = $nuevoCliente["apellidoPaterno"];
+        $U_SYS_APMA = $nuevoCliente["apellidoMaterno"];
+        $U_SYS_CALL = $nuevoCliente["calle"];
+        $U_SYS_NUEX = $nuevoCliente["numeroExterior"];
+        $U_SYS_NUIN = $nuevoCliente["numeroInterior"];
+        $U_SYS_COLO = $nuevoCliente["colonia"];
+        $U_SYS_DEMU = $nuevoCliente["delegacion"];
+        $U_SYS_ESTA = $nuevoCliente["estado"];
+        $U_SYS_CIUD = $nuevoCliente["ciudad"];
+        $U_SYS_COPO = $nuevoCliente["codigoPostal"];
+        $U_SYS_PAIS = $nuevoCliente["pais"];
+        $U_SYS_TEL1 = $nuevoCliente["telefono1"];
+        $U_SYS_TEL2 = $nuevoCliente["telefono2"];
+        $U_SYS_MAIL = $nuevoCliente["email"];
+        $U_SYS_REFE = $nuevoCliente["referencias"];
+        $U_SYS_SUCU = $nuevoCliente["sucursal"];
+        $U_SYS_FECH = $nuevoCliente["fecha"];
+        $U_SYS_SINC = $nuevoCliente["sincronizado"];
+
+        $sqlCrearNuevoCliente =  "INSERT INTO pos.`@sys_pclientes`(Code, Name, U_SYS_MEMB, U_SYS_NOMB, U_SYS_APPA, U_SYS_APMA, " .
+                "   U_SYS_CALL, U_SYS_NUEX, U_SYS_NUIN, U_SYS_COLO, U_SYS_DEMU, U_SYS_ESTA, U_SYS_CIUD, U_SYS_COPO, U_SYS_PAIS, " .
+                "   U_SYS_TEL1, U_SYS_TEL2, U_SYS_MAIL, U_SYS_REFE, U_SYS_SUCU, U_SYS_FECH, U_SYS_SINC)" .
+                "VALUES ('$Code', '$Name', '$U_SYS_MEMB', '$U_SYS_NOMB', '$U_SYS_APPA', '$U_SYS_APMA', '$U_SYS_CALL', '$U_SYS_NUEX', $U_SYS_NUIN, " .
+                "   '$U_SYS_COLO', '$U_SYS_DEMU', '$U_SYS_ESTA', '$U_SYS_CIUD', '$U_SYS_COPO', '$U_SYS_PAIS', '$U_SYS_TEL1', '$U_SYS_TEL2', " .
+                "   '$U_SYS_MAIL', $U_SYS_REFE, '$U_SYS_SUCU', '$U_SYS_FECH', '$U_SYS_SINC')";
+
+        $sqlUpdateFolio = "INSERT INTO  pos.`@sys_pfolclientes`(Code, Name, U_SYS_FOLI) " .
+                "VALUES ($U_SYS_SUCU, $U_SYS_SUCU, $Code) " .
+                "ON DUPLICATE KEY UPDATE U_SYS_FOLI = $Code";
+
+        $array_result = array();
+
+        // Inicia transactio nde tipo escritura
+        $conn->start_transaction(MYSQLI_TRANS_START_READ_WRITE);
+
+        if ($conn->ejecutar($sqlCrearNuevoCliente) && $conn->ejecutar($sqlUpdateFolio)) {
+            // Termina la transaccion
+            $array_result = array("result"=>"Success", "Code"=>0);
+            $conn->commit_transaction();
         } else {
-            echo $conn->get_last_error();
+            $array_result = array("error"=>"crearCliente()", "result"=>$conn->get_last_error(), "Code"=>1);
+            $conn->rollback_transaction();
         }
 
-    } catch (Exception $e) {
-        echo "Error: " . $e;
+    } catch (Exception $e)  {
+        $array_result = array("result" => $e, "Error" => $conn->get_last_error(), "Code"=>1);
+
+    } finally {
+        return $array_result;
     }
-    return false;
 }

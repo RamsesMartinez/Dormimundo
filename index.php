@@ -12,7 +12,8 @@
     session_name("loginUsuario");
     session_start();
 
-    $session_value = (isset($_SESSION['username'])) ? $_SESSION['username']: '';
+    $session_user_name = (isset($_SESSION['username'])) ? $_SESSION['username']: '';
+    $session_user_code = (isset($_SESSION['userCode'])) ? $_SESSION['userCode']: '';
 
     $TIEMPO_MAX_SESSION = 3600;  // Tiempo de duración máxima de la sesión (segundos)
     $TIEMPO_VALIDAR_SESSION = 3;  // Tiempo para verificar la sesión (segundos)
@@ -36,16 +37,16 @@
 
     ?>
     <script type='text/javascript'>
-        var session_username='<?php echo $session_value;?>';
+        var sessionUsername='<?php echo $session_user_name;?>';
 
-        if (session_username !== '') { // Si hay sesión activa
+        if (sessionUsername !== '') {
             // Si hay sesión activa
             if (document.location.hash === '' || document.location.hash.indexOf('Login') !== -1) {
                 // Redirige al home
                 location.href = 'http://localhost/#/Dormimundo/Home/';
             }
-
-        } else { // Si NO hay sesión activa)
+        }
+        else {
             // Si NO está en el login
             if (!(document.location.hash === '' || document.location.hash.indexOf('Login') !== -1)) {
                 // Redirige al login
@@ -79,85 +80,107 @@
 <body class="sapUiBody" id="content" rootUiArea ></body>
 
 <script type="text/javascript">
-    $(function() {
-        var session_username = '<?php echo $session_value;?>';
-        // Tiempo para validar la sesión (en segundos por multiplo de 1000)
-        var tiempoValidarSession = parseInt('<?php echo $TIEMPO_VALIDAR_SESSION;?>') * 1000;
-        var tiempoMaxSession = parseInt('<?php  echo $TIEMPO_MAX_SESSION;?>');
+    var sessionUsername = '<?php echo $session_user_name;?>';
+    var sessionUserCode='<?php echo $session_user_code;?>';
+    // Tiempo para validar la sesión (en segundos por multiplo de 1000)
+    var tiempoValidarSession = parseInt('<?php echo $TIEMPO_VALIDAR_SESSION;?>') * 1000;
+    var tiempoMaxSession = parseInt('<?php  echo $TIEMPO_MAX_SESSION;?>');
 
+    $(function() {
         document.onclick = actualizarSesion;
 
         // Verifica la sesión contínuamente
         var refreshIntervalId = setInterval(validarSesion, tiempoValidarSession);
+        if (sessionUserCode !== '' && sessionUsername !== '') {
+            actualizarModeloAgente(sessionUserCode, sessionUsername);
+        }
+    });
 
-        /**
-         * Script para detectar cambios de vistas en local
-         *
-         */
-        jQuery(window).bind('hashchange', function () {
-            if (session_username !== '') { // Si hay sesión activa
-                // Si hay sesión activa
-                if (document.location.hash === '' || document.location.hash.indexOf('Login') !== -1) {
-                    // Redirige al home
-                    location.href = 'http://localhost/#/Dormimundo/Home/';
-                }
-
-            } else { // Si NO hay sesión activa)
-                // Si NO está en el login
-                if (!(document.location.hash === '' || document.location.hash.indexOf('Login') !== -1)) {
-                    // Redirige al login
-                    location.href = 'http://localhost/';
-                }
+    /**
+     * Script para detectar cambios de vistas en local y redirigir al login
+     *  si es necesario cuando no haya una sesión activa
+     *
+     */
+    jQuery(window).bind('hashchange', function () {
+        if (sessionUsername !== '') { // Si hay sesión activa
+            // Si hay sesión activa
+            if (document.location.hash === '' || document.location.hash.indexOf('Login') !== -1) {
+                // Redirige al home
+                location.href = 'http://localhost/#/Dormimundo/Home/';
             }
-        });
 
-        /**
-         * Función para validar cada cierto intervalo de tiempo si la sesión está activa aún
-         */
-        function validarSesion() {
+        } else { // Si NO hay sesión activa)
             // Si NO está en el login
             if (!(document.location.hash === '' || document.location.hash.indexOf('Login') !== -1)) {
-
-                $.ajax({
-                    url: '/connect/SYS_PSesion.php',
-                    method: 'POST',
-                    type: 'json',
-                    data: {
-                        'type': 'check_login',
-                        'tiempo_max_session': tiempoMaxSession
-                    },
-                    success: function (result) {
-                        if (result.session === false) { //Sesión caducada
-                            clearInterval(refreshIntervalId);
-                            location.reload();
-                        }
-
-                    },
-                    error: function (err) {
-                        "error: ".log
-                        console.log(err);
-                    }
-                });
+                // Redirige al login
+                location.href = 'http://localhost/';
             }
         }
+    });
 
-        function  actualizarSesion() {
+    /**
+     * Función que valida tiempo si la sesión aún es válida
+     */
+    function validarSesion() {
+        // Si NO está en el login
+        if (!(document.location.hash === '' || document.location.hash.indexOf('Login') !== -1)) {
+
             $.ajax({
                 url: '/connect/SYS_PSesion.php',
                 method: 'POST',
                 type: 'json',
                 data: {
-                    'type': 'update_session'
+                    'type': 'check_login',
+                    'tiempo_max_session': tiempoMaxSession
                 },
                 success: function (result) {
-                     // console.log(result);
+                    if (result.session === false) { //Sesión caducada
+                        clearInterval(refreshIntervalId);
+                        location.reload();
+                    }
+
                 },
                 error: function (err) {
+                    "error: ".log
                     console.log(err);
                 }
             });
-
         }
-    });
+    }
+
+    /**
+     * Función que actualiza la sesión para que se mantenga activa
+     */
+    function  actualizarSesion() {
+        $.ajax({
+            url: '/connect/SYS_PSesion.php',
+            method: 'POST',
+            type: 'json',
+            data: {
+                'type': 'update_session'
+            },
+            success: function (result) {
+                // console.log(result);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+    }
+
+    /**
+     * Función que actualiza el modelo global para el agente activo
+     * @param sCode - empId del agente
+     * @param sNombre - nombre del agente
+     */
+    function actualizarModeloAgente(sCode, sNombre) {
+        var oGModelAgente = {
+            "code": sCode,
+            "nombre":   sNombre
+        };
+        console.log(sap.ui.getCore());
+        sap.ui.getCore().setModel(oGModelAgente, "/Agente");
+    }
 </script>
 </html>

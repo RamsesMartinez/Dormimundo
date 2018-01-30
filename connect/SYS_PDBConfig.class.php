@@ -1,7 +1,9 @@
 <?php
 /**
- * User: Ramsés Martínez
- * Date: 29/01/2018
+ * Clase que incluye las configuraciones de la conección a la base de datos
+ *
+ * @author Ramsés Martínez
+ * @date 29/01/2018
  */
 
 class SYS_PDBConfig {
@@ -26,14 +28,6 @@ class SYS_PDBConfig {
     }
 
     /**
-     * @param string $serverName
-     */
-    public function setServerName(string $serverName)
-    {
-        $this->serverName = $serverName;
-    }
-
-    /**
      * @return string
      */
     public function getUserName(): string
@@ -41,28 +35,12 @@ class SYS_PDBConfig {
         return $this->userName;
     }
 
-    /**
-     * @param string $userName
-     */
-    public function setUserName(string $userName)
-    {
-        $this->userName = $userName;
-    }
-
-    /**
+     /**
      * @return string
      */
     public function getPassCode(): string
     {
         return $this->passCode;
-    }
-
-    /**
-     * @param string $passCode
-     */
-    public function setPassCode(string $passCode)
-    {
-        $this->passCode = $passCode;
     }
 
     /**
@@ -72,14 +50,5 @@ class SYS_PDBConfig {
     {
         return $this->dbName;
     }
-
-    /**
-     * @param string $dbName
-     */
-    public function setDbName(string $dbName)
-    {
-        $this->dbName = $dbName;
-    }
-
 
 }

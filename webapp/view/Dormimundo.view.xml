@@ -12,7 +12,7 @@
                 <tnt:items>
                     <tnt:NavigationListItem icon="sap-icon://action" expanded="true" hasExpander="true" text="Operaciones">
                         <tnt:items>
-                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Remisiones" select="_onNavigationListItemFirstLevelSelect"/>
+                            <tnt:NavigationListItem expanded="true" hasExpander="true" text="Remisiones" select="_onItemRemisiones"/>
                             <tnt:NavigationListItem expanded="true" hasExpander="true" text="Pedidos" select="_onNavigationListItemCapturaDePedidos"/>
                             <tnt:NavigationListItem expanded="true" hasExpander="true" text="Abonos" select="_onNavigationListItemFirstLevelSelect2"/>
                             <tnt:NavigationListItem expanded="true" hasExpander="true" text="Reimpresión de pedidos" select="_onNavigationListItemFirstLevelSelect3"/>

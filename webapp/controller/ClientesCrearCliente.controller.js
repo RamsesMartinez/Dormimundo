@@ -7,10 +7,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
     'sap/ui/model/ValidateException',
     "sap/ui/core/routing/History",
     'sap/ui/model/json/JSONModel'
-
 ], function(BaseController, jQuery, MessageBox, MessageToast, Utilities, SimpleType, ValidateException, History, JSONModel    ) {
     "use strict";
-
     return BaseController.extend("com.sap.build.standard.dormimundo.controller.ClientesCrearCliente", {
         handleRouteMatched: function (oEvent) {
             var oParams = {};
@@ -33,9 +31,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                     'codigo_sucursal': sCodigoSucursal
                 },
                 success: function (result) {
-                    console.log(result);
                     if ($.isEmptyObject(result)) {
-                        alert("No se ha podido generar la membresía");
+                        MessageBox.alert("handleRouteMatched. Error: " + error.responseText);
+
                         return;
                     }
                     var LONG_COD_CLIENTE = 6;
@@ -51,6 +49,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                 },
                 error: function (error) {
                     MessageBox.alert("handleRouteMatched. Error: " + error.responseText);
+                    console.log("Error %o ", error);
                 }
             });
 
@@ -79,8 +78,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
             var oView = this.getView();
             var oModel = oView.byId('crearClienteForm').getModel('/NuevoCliente');
             var oBindingContext = oEvent.getSource().getBindingContext();
-
-            console.log(oModel);
 
             var aInputs = [
                 oView.byId("txtNombre"),
@@ -116,6 +113,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
             });
 
             if (bValidationError === false) {
+                // Inserta la fecha formateada
+                var fecha = new Date(),
+                    dd = fecha.getDate(),
+                    mm = fecha.getMonth() + 1,
+                    yyyy = fecha.getFullYear();
+
+                if (dd < 10){
+                    dd = '0' + dd;
+                }
+                if (mm < 10){
+                    mm= '0' + mm;
+                }
+                fecha = yyyy + mm + dd;
+
                 $.ajax({
                     url: '/connect/SYS_PClientes.php',
                     type: 'POST',
@@ -141,23 +152,29 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                         sTelefono1: oModel.getProperty('/telefono1'),
                         sTelefono2: oModel.getProperty('/telefono2'),
                         sEmail: oModel.getProperty('/email'),
-                        sReferencias: oModel.getProperty('/referencias')
+                        sReferencias: oModel.getProperty('/referencias'),
+                        sFecha: fecha
                     }
                 })
                 .done(function(result) {
-                    console.log("Cliente creado");
-                    success = true;
+                    if (result.Code === 0) {
+                        success = true;
+                    } else {
+                        MessageToast.show("Ha ocurrido un problema con el servidor");
+                        console.log(result);
+                    }
                 })
                 .fail(function(error) {
-                    MessageBox.alert("_onButtonCrearCliente. Error: ");
+                    MessageBox.alert("_onButtonCrearCliente. Error: " , error);
                     console.log("Error %o ", error);
                 });
                 
             }
 
             if (success === true) {
-                return new Promise(function(fnResolve) {
+                sap.ui.getCore().setModel(oModel.getData(), '/Cliente');
 
+                return new Promise(function(fnResolve) {
                     this.doNavigate("CapturaDeRemision", oBindingContext, fnResolve, ""
                     );
                 }.bind(this)).catch(function (err) { if (err !== undefined) { MessageBox.error(err.message); }});
