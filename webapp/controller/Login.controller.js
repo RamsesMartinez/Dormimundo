@@ -62,9 +62,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                     oView.getModel().setProperty("/userName", sFullName);
 
                 },
-                error: function(err) {
-                    console.log('Error');
-                    console.log(err);
+                error: function(error) {
+                    MessageBox.alert("_onChangeUserCode Error:" + error.responseText );
                 }
             });
         },
@@ -122,8 +121,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
                         alert("Revisa tus credenciales de acceso");
                     }
                 },
-                error: function (err) {
-                    console.log(err);
+                error: function (error) {
+                    MessageBox.alert("ButtonLogin. Error:  " + error.responseText );
                 }
             });
 

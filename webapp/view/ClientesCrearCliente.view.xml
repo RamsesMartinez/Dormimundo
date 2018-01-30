@@ -1,7 +1,7 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.dormimundo.controller.ClientesCrearCliente" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
-    <Page showHeader="true" title="Creación de cliente" showFooter="true" showNavButton="false">
+    <Page id="crearCliente" showHeader="true" title="Creación de cliente" showFooter="true" showNavButton="false">
         <content>
-            <form:Form id="crearCliente" width="100%" editable="true" visible="true">
+            <form:Form id="crearClienteForm" width="100%" editable="true" visible="true">
                 <form:title>
                     <core:Title text="Datos del cliente" level="Auto"/>
                 </form:title>
@@ -10,27 +10,76 @@
                         <form:formElements>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="Membresía" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="Membresía" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input type="Text" value="{Cliente>/membresia}" showValueHelp="false" enabled="false" visible="true" width="auto" valueHelpOnly="false" maxLength="20"/>
+                                    <Input type="Text" value="{/NuevoCliente>/membresia}" showValueHelp="false" enabled="false" visible="true" width="auto" valueHelpOnly="false" maxLength="20"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="Nombre(s)" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="Nombre(s)" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="Nombre(s)" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="250"/>
+                                    <Input
+                                        id="txtNombre"
+                                        placeholder="Nombre(s)"
+                                        value="{
+                                                    path: '/NuevoCliente>/nombre',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 250,
+                                                        minLength: 1
+                                                    }
+                                                }"
+                                        valueStateText="El nombre no debe estar vacío. Máximo 250 carácteres."
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        visible="true"
+                                        width="auto"
+                                        valueHelpOnly="false"
+                                        />
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="Apellidos" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="Apellidos" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="Apellido Paterno" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="100"/>
-                                    <Input placeholder="Apellido Materno" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="100"/>
+                                    <Input
+                                        id="txtApellidoPaterno"
+                                        placeholder="Apellido Paterno"
+                                        value="{
+                                                    path: '/NuevoCliente>/apellidoPaterno',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 100,
+                                                        minLength: 1
+                                                    }
+                                                }"
+                                        valueStateText="El apellido paterno no debe estar vacío. Máximo 100 carácteres."
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        visible="true"
+                                        width="auto"
+                                        valueHelpOnly="false"/>
+                                    <Input
+                                        id="txtApellidoMaterno"
+                                        placeholder="Apellido Materno"
+                                        value="{
+                                                path: '/NuevoCliente>/apellidoMaterno',
+                                                type : 'sap.ui.model.type.String',
+                                                constraints : {
+                                                    maxLength: 100,
+                                                    minLength: 1
+                                                }
+                                            }"
+                                        valueStateText="El apellido materno no debe estar vacío. Máximo 100 carácteres."
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        visible="true"
+                                        width="auto"
+                                        valueHelpOnly="false"/>
                                 </form:fields>
                             </form:FormElement>
                         </form:formElements>
@@ -40,76 +89,261 @@
                         <form:formElements>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="Calle" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="Calle" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="Calle" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="100"/>
+                                    <Input 
+                                        id="txtCalle"
+                                        placeholder="Calle"
+                                        value="{
+                                                    path: '/NuevoCliente>/calle',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 100,
+                                                        minLength: 1
+                                                    }
+                                                }"
+                                        valueStateText="La calle no debe estar vacía. Máximo 100 carácteres."
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        valueHelpOnly="false" />
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="Números" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="Números" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="Número exterior" type="Number" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="6"/>
-                                    <Input placeholder="Número interior" type="Number" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="6"/>
+                                    <Input
+                                        id="txtNumeroExterior"
+                                        placeholder="Número exterior" 
+                                        value="{
+                                                    path: '/NuevoCliente>/numeroExterior',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 6,
+                                                        minLength: 1
+                                                    }
+                                                }"
+                                        valueStateText="El número exterior no debe estar vacío. Máximo 6 carácteres."
+                                        type="Number" 
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        valueHelpOnly="false" 
+                                        maxLength="6"/>
+                                    <Input
+                                        id="txtNumeroInterior"
+                                        placeholder="Número interior" 
+                                        value="{
+                                                    path: '/NuevoCliente>/numeroInterior',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 6
+                                                    }
+                                                }"
+                                        type="Number"
+                                        valueStateText="Máximo 6 carácteres."
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        valueHelpOnly="false" />
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="Colonia" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="Colonia" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="Colonia" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="100"/>
+                                    <Input
+                                        id="txtColonia"
+                                        placeholder="Colonia" 
+                                        value="{
+                                                    path: '/NuevoCliente>/colonia',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 100,
+                                                        minLength: 1
+                                                    }
+                                                }"
+                                        valueStateText="La colonia no debe estar vacía. Máximo 100 carácteres."
+                                        type="Text" 
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        valueHelpOnly="false"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="Del. / Mun." design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="Del. / Mun." design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="Delegación o Municipio" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="100"/>
+                                    <Input
+                                        id="txtDelegacion"
+                                        placeholder="Delegación o Municipio" 
+                                        value="{
+                                                    path: '/NuevoCliente>/delegacion',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 100,
+                                                        minLength: 1
+                                                    }
+                                                }"
+                                        valueStateText="La delegación no debe estar vacía. Máximo 100 carácteres."
+                                        type="Text" 
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        valueHelpOnly="false"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="Estado" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="Estado" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="Estado" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="100"/>
+                                    <Input
+                                        id="txtEstado"
+                                        placeholder="Estado" 
+                                        value="{
+                                                    path: '/NuevoCliente>/estado',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 100,
+                                                        minLength: 1
+                                                    }
+                                                }"
+                                        valueStateText="el estado no debe estar vacío. Máximo 100 carácteres."
+                                        type="Text" 
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        valueHelpOnly="false"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="Ciudad" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="Ciudad" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="Ciudad" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="100"/>
+                                    <Input
+                                        id="txtCiudad"
+                                        placeholder="Ciudad" 
+                                        value="{
+                                                    path: '/NuevoCliente>/ciudad',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 100,
+                                                        minLength: 1
+                                                    }
+                                                }"
+                                        valueStateText="La ciudad no debe estar vacía. Máximo 100 carácteres."
+                                        type="Text" 
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        valueHelpOnly="false"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="C.P." design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="C.P." design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="Código Postal" type="Number" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="10"/>
+                                    <Input
+                                        id="txtCodigoPostal"
+                                        placeholder="Código Postal" 
+                                        value="{
+                                                    path: '/NuevoCliente>/codigoPostal',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 10,
+                                                        minLength: 1
+                                                    }
+                                                }"
+                                        valueStateText="El código postal no debe estar vacío. Máximo 10 carácteres."
+                                        type="Number" 
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        valueHelpOnly="false" />
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="País" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="País" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="País" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="100"/>
+                                    <Input
+                                        id="txtPais"
+                                        placeholder="País" 
+                                        value="{
+                                                    path: '/NuevoCliente>/pais',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 100,
+                                                        minLength: 1
+                                                    }
+                                                }"
+                                        valueStateText="El país no debe estar vacío. Máximo 100 carácteres."
+                                        type="Text" 
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        valueHelpOnly="false"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
                                 <form:label>
-                                    <Label text="Teléfonos" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                    <Label text="Teléfonos" design="Standard" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="Teléfono 1" type="Tel" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="20"/>
-                                    <Input placeholder="Teléfono 2" type="Tel" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="20"/>
+                                    <Input
+                                        id="txtTelefono1"
+                                        placeholder="Teléfono 1" 
+                                        value="{
+                                                    path: '/NuevoCliente>/telefono1',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 20,
+                                                        minLength: 1
+                                                    }
+                                                }"
+                                        valueStateText="El teléfono 1 no debe estar vacío. Máximo 20 carácteres."
+                                        type="Tel" 
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        valueHelpOnly="false"/>
+                                    <Input
+                                        id="txtTelefono2"
+                                        placeholder="Teléfono 2" 
+                                        value="{
+                                                    path: '/NuevoCliente>/telefono2',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 20
+                                                    }
+                                                }"
+                                        valueStateText="Máximo 20 carácteres."
+                                        type="Tel" 
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        valueHelpOnly="false"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
@@ -117,7 +351,24 @@
                                     <Label text="Email" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <Input placeholder="Correo electrónico" type="Email" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="100"/>
+                                    <Input 
+                                        id="txtEmail"
+                                        placeholder="Correo electrónico" 
+                                        value="{
+                                                    path: '/NuevoCliente>/email',
+                                                    type : '.customEMailType',
+                                                    constraints : {
+                                                        maxLength: 100
+                                                    }
+                                                }"
+                                        valueStateText="Máximo 100 carácteres."
+                                        type="Email"
+                                        showValueHelp="false" 
+                                        enabled="true" 
+                                        visible="true" 
+                                        width="auto" 
+                                        required="false"
+                                        valueHelpOnly="false"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
@@ -125,7 +376,21 @@
                                     <Label text="Referencias" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
                                 </form:label>
                                 <form:fields>
-                                    <TextArea rows="3" placeholder="Datos de referencia" cols="20" maxLength="5000" wrapping="None" visible="true"/>
+                                    <TextArea
+                                        id="txtReferencias"
+                                        placeholder="Datos de referencia" 
+                                        value="{
+                                                    path: '/NuevoCliente>/referencias',
+                                                    type : 'sap.ui.model.type.String',
+                                                    constraints : {
+                                                        maxLength: 5000
+                                                    }
+                                                }"
+                                        valueStateText="Máximo 5000 carácteres."
+                                        rows="3" 
+                                        cols="20" 
+                                        wrapping="None" 
+                                        visible="true"/>
                                 </form:fields>
                             </form:FormElement>
                             <form:FormElement visible="true">
@@ -157,7 +422,7 @@
                 <contentMiddle/>
                 <contentRight>
                     <Button text="Cancelar" type="Transparent" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-                    <Button text="Crear" type="Accept" iconFirst="true" width="135px" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress8"/>
+                    <Button text="Crear" type="Accept" iconFirst="true" width="135px" enabled="true" visible="true" iconDensityAware="false" press="_onButtonCrearCliente"/>
                 </contentRight>
             </Bar>
         </footer>
